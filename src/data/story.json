@@ -1,0 +1,154 @@
+{
+    "title": {"text": "Zanim wybuchnie", "subtitle": "historia jednej grupy", "fade": 2.2, "hold": 2.4},
+    "showTitle": false,
+    "topicIntro": {"fade": 1.6, "hold": 1.2},
+
+    "me": "Kamil",
+    "defaultDelay": 2.0,
+    "group": {"name": "Po zwolnieniach", "status": "23 uczestników"},
+
+    "people": {"Kamil": "#79d7c4", "Ewa": "#ffb86b", "Paweł": "#8ab4ff", "Dorota": "#ff9ec4", "Michał": "#c7a2ff", "Rafał": "#ff6b6b"},
+
+    "chapters": [
+        {
+            "topic": "zwykła grupa",
+            "messages": [
+                {"author": "system", "text": "Poniedziałek, listopad", "delay": 1.0},
+                {"author": "Ewa", "text": "Dzień dobry wszystkim. Przypominam: dziś o 17 spotkanie online. Pani z urzędu pracy opowie o dofinansowaniach na przekwalifikowanie.", "delay": 2.4, "time": "09:12"},
+                {"author": "Paweł", "text": "Będę. Dzięki, Ewa, że to wszystko ciągniesz.", "delay": 2.2, "time": "09:20"},
+                {"author": "Dorota", "text": "Ja też. Wysłałam wczoraj sześć CV, przyszła jedna odpowiedź. Lepsze to niż nic.", "delay": 2.6, "time": "09:31"},
+                {"author": "Ewa", "text": "Sześć w jeden dzień to świetny wynik. Trzymam kciuki, Dorota.", "delay": 2.2, "time": "09:33"},
+                {"author": "Kamil", "text": "Dzień dobry. Jestem tu nowy, Kamil. Siedem lat technikiem w Nordexie, w październiku zwolnienia grupowe. Siostra podesłała mi link.", "delay": 3.4, "time": "10:02"},
+                {"author": "Ewa", "text": "Witaj, Kamil. Dobrze, że napisałeś. Tu nikt nikogo nie ocenia, każdy przeszedł to samo.", "delay": 2.6, "time": "10:05"},
+                {"author": "Paweł", "text": "Nordex? Ja byłem w oddziale w Łodzi. Witaj w klubie, niestety.", "delay": 2.2, "time": "10:06"},
+                {"author": "Dorota", "text": "Cześć, Kamil. Pierwsze tygodnie są najgorsze. Potem robi się trochę lżej.", "delay": 2.4, "time": "10:09"},
+                {"author": "Kamil", "text": "Dzięki. Czasem w ciągu dnia nie wiem, co ze sobą zrobić. Siedzę w mieszkaniu i patrzę w ścianę.", "delay": 3.2, "time": "10:14"},
+                {"author": "Ewa", "text": "To bardzo częste i to nie jest słabość. Pisz do nas, kiedy będzie ciężko, ktoś zawsze odpowie. Wrzucę też kontakty do poradni, w której można porozmawiać z psychologiem.", "delay": 3.6, "time": "10:16"},
+                {"author": "Michał", "text": "Kamil, jeśli ogarniasz elektronikę, w serwisie u nas na Targówku szukają ludzi. Mogę podrzucić kontakt.", "delay": 2.8, "time": "10:21"},
+                {"author": "Kamil", "text": "Serio? Byłbym wdzięczny. Wyślij proszę.", "delay": 2.2, "time": "10:22"},
+                {"author": "Paweł", "text": "No i widzisz. Dlatego ta grupa ma sens.", "delay": 2.0, "time": "10:23"},
+                {"author": "Ewa", "text": "Do zobaczenia o 17. Trzymajcie się, ludzie.", "delay": 2.2, "time": "10:30"}
+            ]
+        },
+
+        {
+            "topic": "my kontra oni",
+            "messages": [
+                {"author": "system", "text": "Trzy tygodnie później", "delay": 1.0},
+                {"author": "Michał", "text": "Kamil, przepraszam. Serwis wziął kogoś z polecenia zarządu. Głupio mi.", "delay": 2.6, "time": "20:41"},
+                {"author": "Kamil", "text": "Nie twoja wina. Ale wszędzie jest to samo. Zawsze ktoś ma znajomego.", "delay": 2.8, "time": "20:43"},
+                {"author": "Paweł", "text": "Mój były dyrektor dostał trzy miliony odprawy. Mnie dali jedną pensję. Dwadzieścia lat roboty.", "delay": 3.0, "time": "20:46"},
+                {"author": "Dorota", "text": "Czytaliście, że zarząd Nordexu wypłacił sobie premie w tym samym miesiącu, w którym ogłosili zwolnienia?", "delay": 3.0, "time": "20:47"},
+                {"author": "Kamil", "text": "Czytałem. Czterysta osób na bruk, a oni premie.", "delay": 2.4, "time": "20:48"},
+                {"author": "system", "text": "Paweł dodał(a) do grupy użytkownika Rafał", "delay": 2.0},
+                {"author": "Paweł", "text": "To Rafał. Znam go z forum o prawach pracowniczych. Wie, jak to wszystko działa od kuchni.", "delay": 2.8, "time": "20:55"},
+                {"author": "Rafał", "text": "Dobry wieczór. Czytam wasze historie od jakiegoś czasu. Przykro mi, że was to spotkało.", "delay": 2.8, "time": "20:57"},
+                {"author": "Rafał", "text": "Ale muszę być szczery. To nie był pech. To jest układ, w którym ludzie tacy jak wy są pozycją w tabelce.", "delay": 3.4, "time": "20:58"},
+                {"author": "Dorota", "text": "No, trochę tak to wygląda.", "delay": 2.0, "time": "21:00"},
+                {"author": "Rafał", "text": "Oni zarabiają na waszym strachu. A wy jeszcze się obwiniacie, że za mało CV wysłaliście.", "delay": 3.0, "time": "21:01"},
+                {"author": "Kamil", "text": "Dokładnie tak się czuję. Jakbym coś zepsuł.", "delay": 2.6, "time": "21:03"},
+                {"author": "Rafał", "text": "Nic nie zepsułeś, Kamil. Zrobili to ci na górze. Pamiętaj o tym.", "delay": 2.8, "time": "21:04"},
+                {"author": "Ewa", "text": "Rafał, miło, że jesteś, ale to grupa wsparcia. Nie szukajmy tu wrogów.", "delay": 2.8, "time": "21:09"},
+                {"author": "Rafał", "text": "Ewa, to nie szukanie wrogów. To nazywanie rzeczy po imieniu.", "delay": 2.6, "time": "21:10"},
+                {"author": "Paweł", "text": "Rafał ma rację. Ile można przepraszać za coś, czego się nie zrobiło?", "delay": 2.6, "time": "21:12"},
+                {"author": "Ewa", "text": "Nie mówię, żeby przepraszać. Mówię, żeby nie robić z ludzi jednego wspólnego wroga.", "delay": 3.0, "time": "21:14"}
+            ]
+        },
+        
+        {
+            "topic": "izolacja",
+            "group": "Ci, którzy widzą",
+            "status": "6 uczestników",
+            "messages": [
+                {"author": "system", "text": "Styczeń", "delay": 1.0},
+                {"author": "system", "text": "Rafał utworzył(a) grupę „Ci, którzy widzą”", "delay": 1.8},
+                {"author": "Rafał", "text": "Tu będzie spokojniej. Bez moderatorów, którzy wyciszają niewygodne tematy, i bez ciągłego „opowiedzcie, jak się czujecie”.", "delay": 3.2, "time": "22:03"},
+                {"author": "Rafał", "text": "Wrzucam dziś nagranie z konferencji branżowej. Zobaczcie, co mówią, gdy myślą, że nikt nie słucha.", "delay": 3.0, "time": "22:05"},
+                {"author": "Dorota", "text": "Dziwne, że o tym nikt nie pisze w mediach.", "delay": 2.4, "time": "22:30"},
+                {"author": "Rafał", "text": "Nie pisze, bo media są częścią tego układu. Zastanówcie się, kto je utrzymuje.", "delay": 2.8, "time": "22:31"},
+                {"author": "Ewa", "text": "Obejrzałam całość. Ten fragment jest wycięty z kontekstu, w pełnej wersji mówią coś zupełnie innego.", "delay": 3.2, "time": "22:48"},
+                {"author": "Rafał", "text": "Oczywiście. Ewa sprawdza w oficjalnych źródłach. Tych samych, które nas okłamują.", "delay": 2.8, "time": "22:50"},
+                {"author": "Michał", "text": "Ewa, daj spokój. Raz można zaufać grupie.", "delay": 2.2, "time": "22:51"},
+                {"author": "Ewa", "text": "Zaufanie nie polega na wyłączeniu myślenia, Michał.", "delay": 2.4, "time": "22:52"},
+                {"author": "Rafał", "text": "Ewa, masz prawo do własnego zdania. Ale to zdanie ludzi, którzy się dostosowali i myślą, że jeszcze coś ocalą.", "delay": 3.4, "time": "22:53"},
+                {"author": "Kamil", "text": "Ewa, szczerze, odkąd jest tu Rafał, widzę rzeczy wyraźniej niż przez ostatnie pół roku.", "delay": 3.2, "time": "22:55"},
+                {"author": "Ewa", "text": "Kamil, pamiętasz, po co założyłam tamtą grupę? Żeby nikt nie został z tym sam.", "delay": 3.0, "time": "22:57"},
+                {"author": "Kamil", "text": "Pamiętam i dziękuję za pomoc. Ale to już nie jest to samo.", "delay": 2.8, "time": "22:58"},
+                {"author": "system", "text": "Ewa opuściła grupę", "delay": 2.6},
+                {"author": "Rafał", "text": "Lepiej wcześniej niż później. Zostają ci, którym naprawdę zależy.", "delay": 2.8, "time": "23:01"},
+                {"author": "Rafał", "text": "Kamil, jak tam siostra? Odzywała się?", "delay": 2.6, "time": "23:04"},
+                {"author": "Kamil", "text": "Dzwoni codziennie. Mówi, że się zmieniłem i że siedzę w telefonie po nocach.", "delay": 3.0, "time": "23:06"},
+                {"author": "Rafał", "text": "Ludzie, którzy nie rozumieją, zawsze powiedzą, że się zmieniłeś. Nie tłumacz im nic. Oni cię nie słuchają. My słuchamy.", "delay": 3.4, "time": "23:07"},
+                {"author": "Rafał", "text": "I przenieśmy się na szyfrowany komunikator. Dla bezpieczeństwa. Już nas obserwują.", "delay": 3.0, "time": "23:09"}
+            ]
+        },
+
+        {
+            "topic": "eskalacja",
+            "group": "Zamknięta grupa",
+            "status": "5 uczestników",
+            "messages": [
+                {"author": "system", "text": "Marzec", "delay": 1.0},
+                {"author": "Rafał", "text": "Pięć miesięcy zbieramy podpisy, piszemy listy, chodzimy na spotkania. I co? Cisza.", "delay": 2.8, "time": "23:30"},
+                {"author": "Paweł", "text": "Ani jeden urzędnik nawet nie odpisał.", "delay": 2.2, "time": "23:31"},
+                {"author": "Rafał", "text": "Bo dla nich nie jesteśmy ludźmi. Jesteśmy kosztem, który się wykreśla.", "delay": 2.8, "time": "23:32"},
+                {"author": "Dorota", "text": "Syn zapytał mnie wczoraj, czemu znowu nie ma obiadu. Wiecie, jak to jest?", "delay": 3.2, "time": "23:34"},
+                {"author": "Rafał", "text": "Wiemy, Dorota. I wiemy, kto za to odpowiada. Ci ludzie nie zasługują na współczucie. Zasługują na to, żeby poczuć to samo.", "delay": 3.6, "time": "23:35"},
+                {"author": "Michał", "text": "Jak to „poczuć to samo”?", "delay": 2.2, "time": "23:36"},
+                {"author": "Rafał", "text": "Że ich wygodne życie może się skończyć w jeden dzień. Próbowaliśmy po dobroci. Nikt nie słucha, dopóki się nie boi.", "delay": 3.6, "time": "23:37"},
+                {"author": "Michał", "text": "To brzmi jak groźba. Nie wiem, czy chcę w tym być.", "delay": 2.8, "time": "23:38"},
+                {"author": "Rafał", "text": "Każdy ma prawo wątpić, Michał. Pamiętaj tylko, że wiesz o nas wszystko. A my o tobie.", "delay": 3.2, "time": "23:39"},
+                {"author": "Michał", "text": "Co to ma znaczyć?", "delay": 2.0, "time": "23:39"},
+                {"author": "Rafał", "text": "Nic złego. Że jesteśmy w tym razem. Nikt nie odchodzi bez konsekwencji dla reszty.", "delay": 3.0, "time": "23:40"},
+                {"author": "Paweł", "text": "Michał, nie rób nam tego teraz.", "delay": 2.4, "time": "23:41"},
+                {"author": "Kamil", "text": "Oni nie mają skrupułów, kiedy wyrzucają ludzi. To dlaczego my mamy je mieć?", "delay": 3.0, "time": "23:42"},
+                {"author": "Rafał", "text": "Kamil, ty znasz ten gmach lepiej niż ktokolwiek. Siedem lat obsługiwałeś ich systemy ochrony. Wiesz, jak to działa od środka.", "delay": 3.6, "time": "23:44"},
+                {"author": "Kamil", "text": "Wiem. I co z tego? Wyrzucili mnie jak śmiecia.", "delay": 2.6, "time": "23:45"},
+                {"author": "Rafał", "text": "Właśnie dlatego to ty jesteś dla nas najważniejszy.", "delay": 2.6, "time": "23:46"},
+                {"author": "Michał", "text": "...dobra. Zostaję.", "delay": 3.6, "time": "23:52"}
+            ]
+        },
+
+        {
+            "topic": "działanie",
+            "group": "Zamknięta grupa",
+            "status": "5 uczestników",
+            "messages": [
+                {"author": "system", "text": "Czerwiec · dzień przed", "delay": 1.0},
+                {"author": "Rafał", "text": "Jutro. Dwunasta. Wszystko ustalone, każdy zna swoją część.", "delay": 2.4, "time": "20:12"},
+                {"author": "Paweł", "text": "Pierwszy punkt gotowy. Wszedłem jako dostawca, nikt nie zapytał.", "delay": 2.8, "time": "20:14"},
+                {"author": "Dorota", "text": "Drugi też. Ręce mi się trzęsą.", "delay": 2.4, "time": "20:16"},
+                {"author": "Rafał", "text": "To normalne. Jutro o tej porze będzie po wszystkim.", "delay": 2.6, "time": "20:17"},
+                {"author": "Michał", "text": "Rafał, tam są ludzie z recepcji, sprzątaczki, kurierzy. Ktoś może zginąć.", "delay": 3.2, "time": "20:18"},
+                {"author": "Rafał", "text": "Rozmawialiśmy o tym. Nikt w tym budynku nie jest bez winy. Wszyscy trzymają ten układ przy życiu.", "delay": 3.4, "time": "20:19"},
+                {"author": "Rafał", "text": "Kamil, ty zostajesz w środku. Znasz panele, kody i trasy ochrony. Jeśli ktoś będzie próbował rozbroić ładunki, nie możesz go przepuścić.", "delay": 3.8, "time": "20:21"},
+                {"author": "Kamil", "text": "Rozumiem. Ostatnie zabezpieczenie.", "delay": 2.8, "time": "20:23"},
+                {"author": "Rafał", "text": "Zostaniesz zapamiętany. To ty pokażesz im, że nas nie da się ignorować.", "delay": 3.0, "time": "20:24"},
+                {"author": "Dorota", "text": "Kamil, nie musisz być w środku sam. Przecież to znaczy, że...", "delay": 3.0, "time": "20:25"},
+                {"author": "Kamil", "text": "Wiem, co to znaczy. Nie ma już odwrotu.", "delay": 3.0, "time": "20:26"},
+                {"author": "Paweł", "text": "A ty, Rafał? Gdzie będziesz?", "delay": 2.4, "time": "20:27"},
+                {"author": "Rafał", "text": "Koordynuję z zewnątrz. Ktoś musi widzieć całość.", "delay": 2.8, "time": "20:28"},
+                {"author": "Kamil", "text": "Napisałem do siostry. Nie wysłałem.", "delay": 3.4, "time": "20:31"},
+                {"author": "Rafał", "text": "I dobrze. Po przeczytaniu usuńcie wiadomości. Do zobaczenia po drugiej stronie.", "delay": 3.0, "time": "20:32"}
+            ]
+        },
+
+        {
+            "topic": "konsekwencje",
+            "group": "Zamknięta grupa",
+            "status": "5 uczestników",
+            "auto": 2.6,
+            "messages": [
+                {"author": "system", "text": "Dzień po", "delay": 1.0},
+                {"author": "Kamil", "text": "Rafał?", "delay": 2.6, "time": "13:41"},
+                {"author": "Kamil", "text": "Paweł? Dorota? Ktokolwiek?", "delay": 2.4, "time": "13:42"},
+                {"author": "Kamil", "text": "Miałeś być na zewnątrz. Miałeś koordynować. Odpisz.", "delay": 3.0, "time": "13:44"},
+                {"author": "system", "text": "Grupa usunięta", "delay": 2.8, "banner": true}
+            ],
+            "then": [
+                {"scene": "police", "duration": 9, "caption": "Kamil został zatrzymany przed budynkiem. Wszystkie ładunki rozbrojono, nikt nie zginął. Paweł, Dorota i Michał trafili do aresztu. Rafał zniknął z sieci razem z kontami, z których prowadził grupę. Policja ustaliła, że zwerbował w ten sam sposób inne osoby."},
+                {"scene": "end", "title": "Koniec", "text": "Nikt nie budzi się pewnego dnia z decyzją o ataku. Ta historia zaczęła się od utraty pracy, długów i samotności, czyli od prawdziwej krzywdy. Gniew nie czyni jeszcze nikogo radykałem. Niebezpieczne jest to, kto go przejmie i dokąd skieruje.\n\nRadykalizacja idzie krok po kroku: od grupy, która daje wsparcie, przez prostą opowieść o „nas” i „nich”, odcinanie się od bliskich i od każdego, kto myśli inaczej, aż po presję, z której nie ma wyjścia. Po drodze zawsze ktoś mówi, że wątpliwość to zdrada.\n\nKażdy z tych kroków da się zatrzymać. Gdy ktoś bliski się wycofuje, wszystko sprowadza do jednego winnego i powtarza cudze słowa, nie wycofuj się razem z nim. Rozmowa, pytania i zwykła obecność są silniejsze niż wiadomości od obcego z internetu. A ci, którzy każą innym ryzykować, sami rzadko zostają na pierwszej linii.", "button": "Menu główne"}
+            ]
+        }
+    ]
+}

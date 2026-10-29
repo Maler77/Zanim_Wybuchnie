@@ -1,0 +1,380 @@
+{
+ "name": "Poziom 2",
+ "subtitle": "W biały dzień",
+ "thumbnail": "level2Thumbnail",
+ "questionCategory": "medium",
+ "background": [
+  "cityDay"
+ ],
+ "timeLimit": 110,
+ "width": 4352,
+ "height": 488,
+ "hp": 5,
+ "spawn": {
+  "x": 64,
+  "y": 448
+ },
+ "platforms": [
+  {
+   "x": 0,
+   "y": 448,
+   "w": 4352,
+   "h": 40,
+   "texture": "assets/l2_pavement.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 120,
+   "y": 416,
+   "w": 16,
+   "h": 32,
+   "texture": "assets/l2_hydrant.png",
+   "solid": false
+  },
+  {
+   "x": 170,
+   "y": 416,
+   "w": 64,
+   "h": 32,
+   "texture": "assets/l2_bench.png",
+   "solid": false
+  },
+  {
+   "x": 262,
+   "y": 320,
+   "w": 32,
+   "h": 128,
+   "texture": "assets/l2_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 330,
+   "y": 416,
+   "w": 64,
+   "h": 32,
+   "texture": "assets/l2_planter.png"
+  },
+  {
+   "x": 452,
+   "y": 392,
+   "w": 64,
+   "h": 56,
+   "texture": "assets/l2_kiosk.png"
+  },
+  {
+   "x": 536,
+   "y": 424,
+   "w": 40,
+   "h": 24,
+   "texture": "assets/l2_cones.png",
+   "solid": false
+  },
+  {
+   "x": 600,
+   "y": 320,
+   "w": 224,
+   "h": 128,
+   "texture": "assets/l2_trelvos_market.png",
+   "solid": false
+  },
+  {
+   "x": 510,
+   "y": 320,
+   "w": 64,
+   "h": 128,
+   "texture": "assets/l2_tree.png",
+   "solid": false
+  },
+  {
+   "x": 928,
+   "y": 288,
+   "w": 224,
+   "h": 160,
+   "texture": "assets/l2_flat.png"
+  },
+  {
+   "x": 864,
+   "y": 272,
+   "w": 64,
+   "h": 176,
+   "texture": "assets/l2_scaffold.png",
+   "solid": false
+  },
+  {
+   "x": 864,
+   "y": 304,
+   "w": 64,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 864,
+   "y": 352,
+   "w": 64,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 864,
+   "y": 400,
+   "w": 64,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 1352,
+   "y": 320,
+   "w": 192,
+   "h": 128,
+   "texture": "assets/l2_cafe.png"
+  },
+  {
+   "x": 1584,
+   "y": 352,
+   "w": 96,
+   "h": 96,
+   "texture": "assets/l2_busstop.png",
+   "solid": false
+  },
+  {
+   "x": 1610,
+   "y": 408,
+   "w": 24,
+   "h": 40,
+   "texture": "assets/l2_mailbox.png",
+   "solid": false
+  },
+  {
+   "x": 1960,
+   "y": 320,
+   "w": 32,
+   "h": 128,
+   "texture": "assets/l2_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 2112,
+   "y": 288,
+   "w": 256,
+   "h": 160,
+   "texture": "assets/l2_trelvos_bank.png",
+   "solid": false
+  },
+  {
+   "x": 2022,
+   "y": 320,
+   "w": 64,
+   "h": 128,
+   "texture": "assets/l2_tree.png",
+   "solid": false
+  },
+  {
+   "x": 2448,
+   "y": 160,
+   "w": 224,
+   "h": 288,
+   "texture": "assets/l2_gate.png",
+   "solid": false
+  },
+  {
+   "x": 2448,
+   "y": 160,
+   "w": 224,
+   "h": 224,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 2768,
+   "y": 288,
+   "w": 192,
+   "h": 160,
+   "texture": "assets/l2_trelvos_tower.png"
+  },
+  {
+   "x": 2784,
+   "y": 240,
+   "w": 128,
+   "h": 48,
+   "texture": "assets/l2_trelvos_sign.png",
+   "solid": false
+  },
+  {
+   "x": 3076,
+   "y": 80,
+   "w": 176,
+   "h": 368,
+   "texture": "assets/l2_crane.png",
+   "solid": false
+  },
+  {
+   "x": 3092,
+   "y": 122,
+   "w": 24,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent",
+   "solid": false,
+   "grappleable": true
+  },
+  {
+   "x": 3264,
+   "y": 288,
+   "w": 256,
+   "h": 160,
+   "texture": "assets/l2_warehouse.png"
+  },
+  {
+   "x": 3560,
+   "y": 416,
+   "w": 64,
+   "h": 32,
+   "texture": "assets/l2_bench.png",
+   "solid": false
+  },
+  {
+   "x": 3640,
+   "y": 384,
+   "w": 96,
+   "h": 64,
+   "texture": "assets/l2_container.png"
+  },
+  {
+   "x": 3800,
+   "y": 392,
+   "w": 128,
+   "h": 56,
+   "texture": "assets/l2_van.png",
+   "solid": false
+  },
+  {
+   "x": 3801,
+   "y": 395,
+   "w": 90,
+   "h": 44,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 3891,
+   "y": 405,
+   "w": 37,
+   "h": 34,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 4128,
+   "y": 320,
+   "w": 224,
+   "h": 128,
+   "texture": "assets/l2_depot.png",
+   "solid": false
+  },
+  {
+   "x": 4130,
+   "y": 320,
+   "w": 32,
+   "h": 128,
+   "texture": "assets/l2_lamp.png",
+   "solid": false
+  }
+ ],
+ "bombs": [
+  {
+   "x": 712,
+   "y": 448
+  },
+  {
+   "x": 2240,
+   "y": 448
+  },
+  {
+   "x": 2936,
+   "y": 288
+  }
+ ],
+ "enemies": [
+  {
+   "type": "weak",
+   "id": "weak-1",
+   "x": 1780,
+   "y": 448,
+   "direction": -1,
+   "speed": 48,
+   "area": {
+    "x1": 1660,
+    "y1": 308,
+    "x2": 1900,
+    "y2": 448
+   }
+  },
+  {
+   "type": "strong",
+   "id": "strong-1",
+   "x": 4060,
+   "y": 448,
+   "direction": -1,
+   "speed": 36,
+   "area": {
+    "x1": 3960,
+    "y1": 308,
+    "x2": 4120,
+    "y2": 448
+   }
+  }
+ ],
+ "checkpoints": [
+  {
+   "x": 968,
+   "y": 288
+  },
+  {
+   "x": 1392,
+   "y": 320
+  },
+  {
+   "x": 1590,
+   "y": 448
+  },
+  {
+   "x": 2410,
+   "y": 448
+  },
+  {
+   "x": 3304,
+   "y": 288
+  },
+  {
+   "x": 3580,
+   "y": 448
+  }
+ ],
+ "spikes": [
+  {
+   "x": 1152,
+   "y": 440,
+   "w": 200,
+   "h": 8
+  },
+  {
+   "x": 2960,
+   "y": 440,
+   "w": 200,
+   "h": 8
+  },
+  {
+   "x": 3224,
+   "y": 440,
+   "w": 40,
+   "h": 8
+  }
+ ],
+ "jumpPads": []
+}

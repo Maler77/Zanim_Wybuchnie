@@ -1,0 +1,494 @@
+{
+ "name": "Poziom 4",
+ "subtitle": "Zamach na szczycie",
+ "thumbnail": "level4Thumbnail",
+ "questionCategory": "medium",
+ "background": [
+  "skylineDusk"
+ ],
+ "timeLimit": 240,
+ "width": 6300,
+ "height": 720,
+ "hp": 4,
+ "fallLimit": 690,
+ "spawn": {
+  "x": 72,
+  "y": 500
+ },
+ "exit": {
+  "x": 6196,
+  "y": 340
+ },
+ "platforms": [
+  {
+   "x": 0,
+   "y": 500,
+   "w": 420,
+   "h": 220,
+   "texture": "assets/l4_a0.png"
+  },
+  {
+   "x": 530,
+   "y": 500,
+   "w": 330,
+   "h": 220,
+   "texture": "assets/l4_a1.png"
+  },
+  {
+   "x": 1060,
+   "y": 520,
+   "w": 280,
+   "h": 200,
+   "texture": "assets/l4_a2.png"
+  },
+  {
+   "x": 1380,
+   "y": 380,
+   "w": 380,
+   "h": 340,
+   "texture": "assets/l4_a3.png"
+  },
+  {
+   "x": 2020,
+   "y": 400,
+   "w": 360,
+   "h": 320,
+   "texture": "assets/l4_a4.png"
+  },
+  {
+   "x": 2500,
+   "y": 420,
+   "w": 120,
+   "h": 300,
+   "texture": "assets/l4_p1.png"
+  },
+  {
+   "x": 2720,
+   "y": 380,
+   "w": 120,
+   "h": 340,
+   "texture": "assets/l4_p2.png"
+  },
+  {
+   "x": 2960,
+   "y": 420,
+   "w": 120,
+   "h": 300,
+   "texture": "assets/l4_p3.png"
+  },
+  {
+   "x": 3180,
+   "y": 380,
+   "w": 180,
+   "h": 340,
+   "texture": "assets/l4_p4.png"
+  },
+  {
+   "x": 3470,
+   "y": 500,
+   "w": 946,
+   "h": 220,
+   "texture": "assets/l4_a5.png"
+  },
+  {
+   "x": 4566,
+   "y": 300,
+   "w": 240,
+   "h": 420,
+   "texture": "assets/l4_a6.png"
+  },
+  {
+   "x": 5106,
+   "y": 320,
+   "w": 320,
+   "h": 400,
+   "texture": "assets/l4_a7.png"
+  },
+  {
+   "x": 5636,
+   "y": 340,
+   "w": 620,
+   "h": 380,
+   "texture": "assets/l4_a8.png"
+  },
+  {
+   "x": 230,
+   "y": 460,
+   "w": 56,
+   "h": 40,
+   "texture": "assets/l4_ac.png"
+  },
+  {
+   "x": 60,
+   "y": 350,
+   "w": 24,
+   "h": 150,
+   "texture": "assets/l4_antenna.png",
+   "solid": false
+  },
+  {
+   "x": 650,
+   "y": 396,
+   "w": 176,
+   "h": 104,
+   "texture": "assets/l4_billboard.png",
+   "solid": false
+  },
+  {
+   "x": 1100,
+   "y": 476,
+   "w": 44,
+   "h": 44,
+   "texture": "assets/l4_dish.png",
+   "solid": false
+  },
+  {
+   "x": 1470,
+   "y": 322,
+   "w": 64,
+   "h": 58,
+   "texture": "assets/l4_tank.png"
+  },
+  {
+   "x": 1580,
+   "y": 340,
+   "w": 56,
+   "h": 40,
+   "texture": "assets/l4_ac.png"
+  },
+  {
+   "x": 1710,
+   "y": 148,
+   "w": 198,
+   "h": 232,
+   "texture": "assets/l4_crane.png",
+   "solid": false
+  },
+  {
+   "x": 1878,
+   "y": 230,
+   "w": 24,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent",
+   "solid": false,
+   "grappleable": true
+  },
+  {
+   "x": 2170,
+   "y": 296,
+   "w": 176,
+   "h": 104,
+   "texture": "assets/l4_billboard.png",
+   "solid": false
+  },
+  {
+   "x": 2040,
+   "y": 250,
+   "w": 24,
+   "h": 150,
+   "texture": "assets/l4_antenna.png",
+   "solid": false
+  },
+  {
+   "x": 2548,
+   "y": 270,
+   "w": 24,
+   "h": 150,
+   "texture": "assets/l4_antenna.png",
+   "solid": false
+  },
+  {
+   "x": 2768,
+   "y": 336,
+   "w": 44,
+   "h": 44,
+   "texture": "assets/l4_dish.png",
+   "solid": false
+  },
+  {
+   "x": 3008,
+   "y": 270,
+   "w": 24,
+   "h": 150,
+   "texture": "assets/l4_antenna.png",
+   "solid": false
+  },
+  {
+   "x": 3228,
+   "y": 336,
+   "w": 44,
+   "h": 44,
+   "texture": "assets/l4_dish.png",
+   "solid": false
+  },
+  {
+   "x": 3540,
+   "y": 396,
+   "w": 176,
+   "h": 104,
+   "texture": "assets/l4_billboard.png",
+   "solid": false
+  },
+  {
+   "x": 3730,
+   "y": 444,
+   "w": 28,
+   "h": 56,
+   "texture": "assets/l4_vent.png"
+  },
+  {
+   "x": 3790,
+   "y": 468,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l1_crate.png"
+  },
+  {
+   "x": 3900,
+   "y": 240,
+   "w": 220,
+   "h": 260,
+   "texture": "assets/l4_block_l.png",
+   "solid": false
+  },
+  {
+   "x": 3900,
+   "y": 240,
+   "w": 220,
+   "h": 196,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 4216,
+   "y": 300,
+   "w": 200,
+   "h": 200,
+   "texture": "assets/l4_block_r.png"
+  },
+  {
+   "x": 4366,
+   "y": 150,
+   "w": 24,
+   "h": 150,
+   "texture": "assets/l4_antenna.png",
+   "solid": false
+  },
+  {
+   "x": 4788,
+   "y": 110,
+   "w": 336,
+   "h": 210,
+   "texture": "assets/l4_cable_300.png",
+   "solid": false
+  },
+  {
+   "x": 4944,
+   "y": 156,
+   "w": 24,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent",
+   "solid": false,
+   "grappleable": true
+  },
+  {
+   "x": 4626,
+   "y": 256,
+   "w": 44,
+   "h": 44,
+   "texture": "assets/l4_dish.png",
+   "solid": false
+  },
+  {
+   "x": 5200,
+   "y": 280,
+   "w": 56,
+   "h": 40,
+   "texture": "assets/l4_ac.png"
+  },
+  {
+   "x": 5720,
+   "y": 300,
+   "w": 56,
+   "h": 40,
+   "texture": "assets/l4_ac.png"
+  },
+  {
+   "x": 5860,
+   "y": 308,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l1_crate.png"
+  },
+  {
+   "x": 6098,
+   "y": 212,
+   "w": 168,
+   "h": 128,
+   "texture": "assets/l4_stairhouse.png",
+   "solid": false
+  }
+ ],
+ "bombs": [
+  {
+   "x": 600,
+   "y": 500
+  },
+  {
+   "x": 2130,
+   "y": 400
+  },
+  {
+   "x": 3510,
+   "y": 500
+  }
+ ],
+ "enemies": [
+  {
+   "type": "weak",
+   "id": "weak-1",
+   "x": 800,
+   "y": 500,
+   "direction": -1,
+   "speed": 48,
+   "area": {
+    "x1": 690,
+    "y1": 380,
+    "x2": 850,
+    "y2": 500
+   }
+  },
+  {
+   "type": "strong",
+   "id": "strong-1",
+   "x": 1690,
+   "y": 380,
+   "direction": -1,
+   "speed": 36,
+   "area": {
+    "x1": 1650,
+    "y1": 260,
+    "x2": 1750,
+    "y2": 380
+   }
+  },
+  {
+   "type": "weak",
+   "id": "weak-2",
+   "x": 3610,
+   "y": 500,
+   "direction": -1,
+   "speed": 48,
+   "area": {
+    "x1": 3540,
+    "y1": 380,
+    "x2": 3710,
+    "y2": 500
+   }
+  },
+  {
+   "type": "strong",
+   "id": "strong-2",
+   "x": 5360,
+   "y": 320,
+   "direction": -1,
+   "speed": 36,
+   "area": {
+    "x1": 5270,
+    "y1": 200,
+    "x2": 5416,
+    "y2": 320
+   }
+  },
+  {
+   "type": "weak",
+   "id": "weak-3",
+   "x": 5930,
+   "y": 340,
+   "direction": -1,
+   "speed": 52,
+   "area": {
+    "x1": 5900,
+    "y1": 220,
+    "x2": 6020,
+    "y2": 340
+   }
+  },
+  {
+   "type": "strong",
+   "id": "strong-3",
+   "x": 6070,
+   "y": 340,
+   "direction": -1,
+   "speed": 36,
+   "area": {
+    "x1": 6020,
+    "y1": 220,
+    "x2": 6120,
+    "y2": 340
+   }
+  }
+ ],
+ "checkpoints": [
+  {
+   "x": 830,
+   "y": 500
+  },
+  {
+   "x": 1100,
+   "y": 520
+  },
+  {
+   "x": 1410,
+   "y": 380
+  },
+  {
+   "x": 1690,
+   "y": 380
+  },
+  {
+   "x": 2060,
+   "y": 400
+  },
+  {
+   "x": 2780,
+   "y": 380
+  },
+  {
+   "x": 3510,
+   "y": 500
+  },
+  {
+   "x": 3860,
+   "y": 500
+  },
+  {
+   "x": 4266,
+   "y": 300
+  },
+  {
+   "x": 4606,
+   "y": 300
+  },
+  {
+   "x": 5146,
+   "y": 320
+  },
+  {
+   "x": 5676,
+   "y": 340
+  }
+ ],
+ "spikes": [],
+ "jumpPads": [
+  {
+   "x": 1300,
+   "y": 512,
+   "w": 32,
+   "h": 8,
+   "power": 1
+  }
+ ]
+}

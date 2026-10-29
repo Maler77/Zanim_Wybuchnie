@@ -1,0 +1,1000 @@
+{
+  "categories": {
+    "easy": [
+      {
+        "id": "q001",
+        "question": "Jak rozumieć radykalizację?",
+        "answers": [
+          "Proces przyjmowania coraz bardziej skrajnych przekonań.",
+          "Zmianę zainteresowań pod wpływem znajomych.",
+          "Zdobywanie wiedzy na temat innych kultur."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q002",
+        "question": "Czy radykalizacja zawsze kończy się przemocą?",
+        "answers": [
+          "Tak, bez względu na okoliczności.",
+          "Nie, choć czasem może prowadzić do akceptacji przemocy.",
+          "Tak, ale dotyczy to wyłącznie dorosłych."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q003",
+        "question": "Co może zwiększać podatność na radykalizację?",
+        "answers": [
+          "Poznawanie nowych punktów widzenia.",
+          "Udział w zajęciach sportowych.",
+          "Poczucie krzywdy i wykluczenia."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q004",
+        "question": "Co charakteryzuje ekstremizm?",
+        "answers": [
+          "Zainteresowanie sprawami publicznymi.",
+          "Skrajne poglądy połączone z odrzucaniem praw innych.",
+          "Chęć poznawania odmiennych tradycji."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q005",
+        "question": "Gdzie można spotkać treści radykalizujące?",
+        "answers": [
+          "Tylko podczas lekcji.",
+          "Wyłącznie w programach telewizyjnych.",
+          "W sieci, grupach i kontaktach osobistych."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q006",
+        "question": "Jak zareagować na nawoływanie do przemocy?",
+        "answers": [
+          "Odmówić poparcia i poszukać pomocy.",
+          "Przekazać wiadomość kolejnym osobom.",
+          "Przyłączyć się, by uniknąć konfliktu."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q007",
+        "question": "Czy mocne przekonania oznaczają ekstremizm?",
+        "answers": [
+          "Tak, jeśli ktoś broni ich publicznie.",
+          "Nie, same silne przekonania o tym nie świadczą.",
+          "Tak, gdy dotyczą spraw społecznych."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q020",
+        "question": "Co odróżnia debatę od nawoływania do nienawiści?",
+        "answers": [
+          "Debata zawsze kończy się zgodą.",
+          "Nawoływanie do nienawiści dotyczy wyłącznie internetu.",
+          "Debata wymienia argumenty, a nienawiść atakuje ludzi."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q021",
+        "question": "Jak najlepiej reagować na krzywdzące stereotypy?",
+        "answers": [
+          "Spokojnie zakwestionować je i wyjaśnić problem.",
+          "Powielać je, żeby poznać reakcję innych.",
+          "Uznać je za prawdziwe, jeśli są popularne."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q022",
+        "question": "Czy kontakt z osobą o skrajnych poglądach wystarcza, by uznać ją za niebezpieczną?",
+        "answers": [
+          "Tak, w każdej sytuacji.",
+          "Nie, trzeba uwzględnić zachowanie i konkretne sygnały.",
+          "Tak, jeśli korzysta z mediów społecznościowych."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q023",
+        "question": "Dlaczego warto sprawdzać informacje przed ich udostępnieniem?",
+        "answers": [
+          "Każda popularna wiadomość jest wiarygodna.",
+          "Udostępnione treści szybko tracą znaczenie.",
+          "Nieprawdziwe przekazy mogą podsycać wrogość."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q024",
+        "question": "Co może osłabiać wpływ grup ekstremistycznych?",
+        "answers": [
+          "Wsparcie społeczne, dialog i poczucie przynależności.",
+          "Ograniczanie kontaktów między wszystkimi grupami.",
+          "Unikanie rozmów o dyskryminacji."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q040",
+        "question": "Czym jest radykalizacja?",
+        "answers": [
+          "Proces, w którym poglądy mogą stawać się coraz bardziej skrajne.",
+          "Każda zmiana zainteresowań.",
+          "Nauka rozwiązywania konfliktów."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q041",
+        "question": "Czy radykalne poglądy zawsze oznaczają zagrożenie?",
+        "answers": [
+          "Tak, niezależnie od sytuacji.",
+          "Nie, należy oceniać również zachowania i konkretne sygnały zagrożenia.",
+          "Tak, jeśli ktoś wypowiada się publicznie."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q042",
+        "question": "Czym jest dyskryminacja?",
+        "answers": [
+          "Współpracą osób o różnych przekonaniach.",
+          "Konstruktywną wymianą argumentów.",
+          "Nierównym traktowaniem osób ze względu na określoną cechę."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q043",
+        "question": "Co warto zrobić, gdy ktoś jest wyśmiewany z powodu pochodzenia?",
+        "answers": [
+          "Zareagować bezpiecznie i wesprzeć osobę pokrzywdzoną.",
+          "Dołączyć do żartów, żeby nie wyróżniać się z grupy.",
+          "Uznać, że problem nie dotyczy nikogo poza tą osobą."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q044",
+        "question": "Czym jest mowa nienawiści?",
+        "answers": [
+          "Każdą krytyczną opinią na temat instytucji.",
+          "Wypowiedzią atakującą lub poniżającą ludzi ze względu na określone cechy lub przynależność.",
+          "Każdą niezgodą podczas dyskusji."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q045",
+        "question": "Dlaczego nie należy udostępniać niesprawdzonych oskarżeń?",
+        "answers": [
+          "Ponieważ wszystkie informacje w internecie są nieprawdziwe.",
+          "Ponieważ udostępnianie wiadomości jest zawsze zabronione.",
+          "Ponieważ można rozpowszechniać fałszywe informacje i krzywdzić innych."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q046",
+        "question": "Co oznacza tolerancja wobec odmiennych poglądów?",
+        "answers": [
+          "Poszanowanie prawa innych do odmiennych opinii, z zachowaniem granic bezpieczeństwa i praw człowieka.",
+          "Obowiązek zgadzania się ze wszystkimi.",
+          "Zakaz krytykowania jakichkolwiek pomysłów."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q047",
+        "question": "Co może być sygnałem manipulacji w internecie?",
+        "answers": [
+          "Podanie autora i źródeł informacji.",
+          "Wywieranie presji, by natychmiast uwierzyć i nie sprawdzać faktów.",
+          "Przedstawienie kilku punktów widzenia."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q048",
+        "question": "Dlaczego warto poznawać osoby z innych środowisk?",
+        "answers": [
+          "Aby wszyscy mieli identyczne przekonania.",
+          "Aby udowodnić, że własna grupa jest lepsza.",
+          "Aby lepiej rozumieć różnice i ograniczać uprzedzenia."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q049",
+        "question": "Co należy zrobić, gdy znajomy namawia do atakowania innych?",
+        "answers": [
+          "Nie wspierać przemocy i poszukać pomocy zaufanej osoby.",
+          "Zgodzić się, aby zachować przyjaźń.",
+          "Przekazać jego wezwanie kolejnym osobom."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q050",
+        "question": "Czy każdy konflikt prowadzi do radykalizacji?",
+        "answers": [
+          "Tak, każdy konflikt kończy się przemocą.",
+          "Nie, konflikt można rozwiązywać pokojowo.",
+          "Tak, jeśli uczestniczą w nim młodzi ludzie."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q051",
+        "question": "Czym jest stereotyp?",
+        "answers": [
+          "Dokładnym opisem każdego człowieka.",
+          "Dowodem potwierdzającym każdą opinię.",
+          "Uproszczonym przekonaniem o osobach należących do określonej grupy."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q052",
+        "question": "Co może pomóc osobie czującej się wykluczoną?",
+        "answers": [
+          "Życzliwa rozmowa, wsparcie i możliwość uczestniczenia w życiu grupy.",
+          "Dalsze izolowanie jej od innych.",
+          "Przekonywanie, że jej problemy są nieważne."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q053",
+        "question": "Jak należy reagować na obraźliwy komentarz w sieci?",
+        "answers": [
+          "Odpowiadać jeszcze większą agresją.",
+          "Nie eskalować konfliktu, a w razie potrzeby zgłosić komentarz.",
+          "Rozsyłać komentarz wszystkim znajomym."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q054",
+        "question": "Czym różni się fakt od opinii?",
+        "answers": [
+          "Każda opinia jest faktem, jeśli jest popularna.",
+          "Fakt to zawsze osobiste odczucie.",
+          "Fakt można weryfikować za pomocą dowodów, a opinia wyraża ocenę lub przekonanie."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q055",
+        "question": "Kto może pomóc uczniowi doświadczającemu gróźb?",
+        "answers": [
+          "Zaufany dorosły, pedagog szkolny lub odpowiednie służby.",
+          "Wyłącznie anonimowi użytkownicy internetu.",
+          "Nikt, ponieważ groźby trzeba rozwiązywać samodzielnie."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q056",
+        "question": "Dlaczego grupy ekstremistyczne mogą wykorzystywać poczucie niesprawiedliwości?",
+        "answers": [
+          "Ponieważ każda krzywda automatycznie prowadzi do ekstremizmu.",
+          "Ponieważ rekrutujący mogą wykorzystywać frustrację do zdobywania poparcia.",
+          "Ponieważ osoby doświadczające niesprawiedliwości zawsze popierają przemoc."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q057",
+        "question": "Co oznacza odpowiedzialne korzystanie z mediów społecznościowych?",
+        "answers": [
+          "Udostępnianie wszystkiego, co wzbudza emocje.",
+          "Wierzenie każdemu popularnemu profilowi.",
+          "Sprawdzanie treści i szanowanie praw innych użytkowników."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q058",
+        "question": "Czy można krytykować działania władz bez popierania ekstremizmu?",
+        "answers": [
+          "Tak, pokojowa krytyka i debata są częścią życia społecznego.",
+          "Nie, każda krytyka władz jest ekstremizmem.",
+          "Tak, ale tylko wtedy, gdy wszyscy się z nią zgadzają."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q059",
+        "question": "Co jest przykładem pokojowego rozwiązywania sporu?",
+        "answers": [
+          "Zmuszanie przeciwnika do milczenia.",
+          "Wysłuchanie argumentów i poszukiwanie rozwiązania akceptowalnego dla stron.",
+          "Grożenie osobie o innym zdaniu."
+        ],
+        "correctAnswer": 1
+      }
+    ],
+    "medium": [
+      {
+        "id": "q008",
+        "question": "Która zmiana może świadczyć o radykalizacji?",
+        "answers": [
+          "Rozpoczęcie nauki nowej umiejętności.",
+          "Coraz częstsze usprawiedliwianie krzywdzenia przeciwników.",
+          "Regularne uczestnictwo w wydarzeniach kulturalnych."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q009",
+        "question": "W jaki sposób platformy społecznościowe mogą wzmacniać skrajne poglądy?",
+        "answers": [
+          "Zapewniają dostęp wyłącznie do sprawdzonych wiadomości.",
+          "Uniemożliwiają tworzenie grup zainteresowań.",
+          "Mogą promować podobne treści i ograniczać różnorodność opinii."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q010",
+        "question": "Na czym polega bańka informacyjna?",
+        "answers": [
+          "Na częstym odbieraniu treści zgodnych z własnymi przekonaniami.",
+          "Na blokowaniu wszystkich wiadomości w internecie.",
+          "Na korzystaniu z wielu niezależnych źródeł informacji."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q011",
+        "question": "Dlaczego osoby wykluczone mogą być celem rekrutacji ekstremistów?",
+        "answers": [
+          "Ponieważ każda z nich odrzuca normy społeczne.",
+          "Ponieważ rekrutujący mogą obiecywać akceptację i wspólnotę.",
+          "Ponieważ samotność zawsze prowadzi do agresji."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q012",
+        "question": "Jaki jest cel propagandy ekstremistycznej?",
+        "answers": [
+          "Przedstawianie wszystkich stanowisk w równym stopniu.",
+          "Wyłącznie przekazywanie neutralnych danych.",
+          "Przekonywanie do skrajnej ideologii, czasem przez manipulację."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q013",
+        "question": "Jak sprawdzić wiarygodność wpisu szerzącego nienawiść?",
+        "answers": [
+          "Zweryfikować autora, źródła i kontekst publikacji.",
+          "Ocenić prawdziwość na podstawie liczby reakcji.",
+          "Przyjąć treść za fakt, jeśli jest często powtarzana."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q014",
+        "question": "Jak szkoła może ograniczać ryzyko radykalizacji?",
+        "answers": [
+          "Unikając wszelkich sporów światopoglądowych.",
+          "Rozwijając krytyczne myślenie i przeciwdziałając dyskryminacji.",
+          "Oddzielając uczniów o odmiennych przekonaniach."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q015",
+        "question": "Co wspiera odporność społeczności na ekstremizm?",
+        "answers": [
+          "Ograniczenie inicjatyw międzykulturowych.",
+          "Pomijanie konfliktów i nierówności.",
+          "Współpraca, edukacja i dialog między mieszkańcami."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q025",
+        "question": "Jaką funkcję może pełnić język spiskowy w radykalizacji?",
+        "answers": [
+          "Może wskazywać wroga i przedstawiać złożone problemy jako spisek.",
+          "Zawsze pomaga rozwiązywać konflikty społeczne.",
+          "Zastępuje potrzebę sprawdzania dowodów."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q026",
+        "question": "Dlaczego poczucie przynależności jest istotne dla grup ekstremistycznych?",
+        "answers": [
+          "Sprawia, że wszyscy członkowie tracą własne poglądy.",
+          "Może zostać wykorzystane do budowania lojalności i zależności.",
+          "Uniemożliwia wpływanie na decyzje innych osób."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q027",
+        "question": "Co należy zrobić po zauważeniu gróźb wobec konkretnej grupy?",
+        "answers": [
+          "Odpowiedzieć podobnymi groźbami.",
+          "Zignorować je w każdych okolicznościach.",
+          "Ocenić sytuację, zachować dowody i zgłosić zagrożenie."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q028",
+        "question": "Jak dezinformacja może wpływać na konflikty społeczne?",
+        "answers": [
+          "Może pogłębiać nieufność i wzmacniać uprzedzenia.",
+          "Zawsze zmniejsza napięcia między grupami.",
+          "Nie wpływa na ocenę innych ludzi."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q029",
+        "question": "Dlaczego warto rozmawiać z osobą wyrażającą skrajne poglądy?",
+        "answers": [
+          "Aby zmusić ją do natychmiastowej zmiany zdania.",
+          "Aby zrozumieć sytuację i zachęcić do krytycznej refleksji.",
+          "Aby potwierdzić wszystkie jej twierdzenia."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q060",
+        "question": "Jak działa mechanizm potwierdzenia własnych przekonań?",
+        "answers": [
+          "Polega na automatycznym odrzucaniu wszystkich własnych opinii.",
+          "Sprawia, że każda nowa informacja jest oceniana bez uprzedzeń.",
+          "Skłania do szukania i akceptowania informacji zgodnych z wcześniejszymi przekonaniami."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q061",
+        "question": "Dlaczego propaganda ekstremistyczna przedstawia świat w kategoriach dobra i zła?",
+        "answers": [
+          "Może upraszczać rzeczywistość i wzmacniać podział na swoich oraz wrogów.",
+          "Aby umożliwić bezstronną ocenę wszystkich argumentów.",
+          "Aby ograniczyć emocjonalne zaangażowanie odbiorców."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q062",
+        "question": "Jak algorytmy rekomendacji mogą wpływać na poglądy użytkowników?",
+        "answers": [
+          "Zawsze przedstawiają równą liczbę różnych stanowisk.",
+          "Mogą podsuwać podobne treści, wzmacniając wcześniejsze zainteresowania i przekonania.",
+          "Uniemożliwiają kontakt z treściami skrajnymi."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q063",
+        "question": "Czym różni się radykalna zmiana społeczna od ekstremizmu?",
+        "answers": [
+          "Każda radykalna zmiana społeczna wymaga przemocy.",
+          "Ekstremizm zawsze oznacza pokojową działalność.",
+          "Radykalna zmiana może być postulowana pokojowo, a ekstremizm może wiązać się z odrzucaniem praw innych lub usprawiedliwianiem przemocy."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q064",
+        "question": "Dlaczego propaganda wykorzystuje fałszywe dylematy?",
+        "answers": [
+          "Aby sugerować, że istnieją tylko dwie możliwości, choć rzeczywistość jest bardziej złożona.",
+          "Aby przedstawić wszystkie dostępne rozwiązania.",
+          "Aby zachęcić do sprawdzania wielu hipotez."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q065",
+        "question": "Jak rozpoznać próbę manipulacji emocjonalnej?",
+        "answers": [
+          "Po obecności odnośników do wiarygodnych badań.",
+          "Po wykorzystywaniu strachu, gniewu lub poczucia zagrożenia do wymuszenia określonej reakcji.",
+          "Po spokojnym przedstawieniu argumentów i ograniczeń."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q066",
+        "question": "Dlaczego zamknięte grupy internetowe mogą sprzyjać radykalizacji?",
+        "answers": [
+          "Ponieważ każdy członek takich grup planuje przemoc.",
+          "Ponieważ nie można w nich publikować żadnych opinii.",
+          "Ponieważ brak kontaktu z odmiennymi perspektywami może wzmacniać skrajne przekonania."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q067",
+        "question": "Jakie znaczenie ma rola świadków podczas nękania?",
+        "answers": [
+          "Ich bezpieczna reakcja i wsparcie osoby pokrzywdzonej mogą ograniczyć poczucie przyzwolenia na przemoc.",
+          "Świadkowie zawsze powinni ignorować sytuację.",
+          "Każdy świadek musi samodzielnie konfrontować sprawcę."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q068",
+        "question": "Dlaczego teorie spiskowe mogą być atrakcyjne w okresach kryzysu?",
+        "answers": [
+          "Ponieważ zawsze opierają się na potwierdzonych dowodach.",
+          "Ponieważ oferują pozornie proste wyjaśnienia niepewnych i złożonych wydarzeń.",
+          "Ponieważ całkowicie eliminują potrzebę szukania winnych."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q069",
+        "question": "Co jest ważne podczas rozmowy z osobą podatną na propagandę?",
+        "answers": [
+          "Publiczne zawstydzenie jej za każdym razem.",
+          "Natychmiastowe zerwanie wszystkich kontaktów w każdej sytuacji.",
+          "Spokojne pytania, sprawdzanie dowodów i utrzymanie bezpiecznej przestrzeni do rozmowy."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q070",
+        "question": "Na czym polega normalizacja przemocy w grupie?",
+        "answers": [
+          "Na stopniowym przedstawianiu krzywdzących zachowań jako dopuszczalnych lub zwyczajnych.",
+          "Na konsekwentnym potępianiu przemocy.",
+          "Na rozwijaniu umiejętności mediacji."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q071",
+        "question": "Dlaczego należy analizować kontekst wypowiedzi przed uznaniem jej za nawoływanie do przemocy?",
+        "answers": [
+          "Ponieważ kontekst nigdy nie ma znaczenia.",
+          "Ponieważ podobne słowa mogą mieć różne znaczenie zależnie od sytuacji, celu i odbiorców.",
+          "Ponieważ o przemocy można mówić wyłącznie w prywatnych rozmowach."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q072",
+        "question": "Jaką funkcję może pełnić dezinformacja w konflikcie między grupami?",
+        "answers": [
+          "Zawsze zapewnia rzetelny obraz wydarzeń.",
+          "Automatycznie rozwiązuje istniejące spory.",
+          "Może wzmacniać wrogość przez rozpowszechnianie fałszywych lub wprowadzających w błąd przekazów."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q073",
+        "question": "Co może świadczyć o próbie rekrutacji do grupy ekstremistycznej?",
+        "answers": [
+          "Presja na zerwanie kontaktów z bliskimi i bezwarunkowe podporządkowanie się grupie.",
+          "Zachęcanie do samodzielnego myślenia i poznawania różnych źródeł.",
+          "Otwarte omawianie zasad i prawa do odejścia."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q074",
+        "question": "Dlaczego poczucie krzywdy nie usprawiedliwia atakowania niewinnych osób?",
+        "answers": [
+          "Ponieważ krzywda nigdy nie wpływa na emocje.",
+          "Ponieważ odpowiedzialność za działania innych nie powinna być zbiorowo przypisywana niewinnym osobom.",
+          "Ponieważ konflikty należy rozwiązywać przez odwet."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q075",
+        "question": "Jak szkoła może rozwijać odporność uczniów na manipulację?",
+        "answers": [
+          "Zakazując zadawania pytań nauczycielom.",
+          "Oceniając uczniów wyłącznie na podstawie ich poglądów.",
+          "Ucząc weryfikacji źródeł, argumentacji i rozpoznawania technik perswazji."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q076",
+        "question": "Czym jest polaryzacja afektywna?",
+        "answers": [
+          "Silną niechęcią lub wrogością wobec osób z przeciwnej grupy, wykraczającą poza samą różnicę poglądów.",
+          "Procesem zanikania wszystkich emocji społecznych.",
+          "Zgodą wszystkich grup w kwestiach politycznych."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q077",
+        "question": "Jak należy postąpić po otrzymaniu wiadomości zawierającej groźby?",
+        "answers": [
+          "Odpowiedzieć groźbami, aby odstraszyć nadawcę.",
+          "Zachować wiadomość, ocenić pilność zagrożenia i zgłosić sprawę odpowiednim osobom lub służbom.",
+          "Opublikować dane nadawcy bez sprawdzania sytuacji."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q078",
+        "question": "Dlaczego dialog międzygrupowy może ograniczać uprzedzenia?",
+        "answers": [
+          "Ponieważ wymusza przyjęcie identycznych przekonań.",
+          "Ponieważ usuwa wszelkie różnice kulturowe.",
+          "Ponieważ umożliwia poznanie doświadczeń innych osób i korygowanie stereotypów."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q079",
+        "question": "Co oznacza krytyczne podejście do własnych przekonań?",
+        "answers": [
+          "Gotowość do sprawdzenia własnych założeń i zmiany opinii w świetle wiarygodnych dowodów.",
+          "Odrzucanie każdej informacji bez względu na jej źródło.",
+          "Przyjmowanie poglądów większości bez analizy."
+        ],
+        "correctAnswer": 0
+      }
+    ],
+    "hard": [
+      {
+        "id": "q016",
+        "question": "Który proces może prowadzić do radykalizacji?",
+        "answers": [
+          "Jednorazowy kontakt z kontrowersyjną opinią zawsze prowadzi do ekstremizmu.",
+          "Przynależność do każdej zamkniętej grupy powoduje przemoc.",
+          "Narastający podział na swoich i wrogów może osłabiać sprzeciw wobec przemocy."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q017",
+        "question": "Dlaczego skrajne poglądy nie są same w sobie dowodem przygotowań do zamachu?",
+        "answers": [
+          "Ponieważ opinie nie przesądzają o zamiarach ani konkretnych działaniach.",
+          "Ponieważ ekstremiści nigdy nie stosują przemocy.",
+          "Ponieważ zamiaru działania nie można oceniać na podstawie żadnych przesłanek."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q018",
+        "question": "Jak dehumanizacja wpływa na postrzeganie innych grup?",
+        "answers": [
+          "Zwiększa gotowość do współpracy między przeciwnikami.",
+          "Odbiera im w przekazie cechy ludzkie i ułatwia usprawiedliwianie krzywdy.",
+          "Zawsze prowadzi do zmniejszenia uprzedzeń."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q019",
+        "question": "Co opisuje polaryzację grupową?",
+        "answers": [
+          "Stopniowe zanikanie wszystkich różnic światopoglądowych.",
+          "Rezygnację z własnych poglądów przez każdego uczestnika.",
+          "Zaostrzanie stanowisk podczas dyskusji w podobnie myślącej grupie."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q030",
+        "question": "Czym różni się radykalizacja poznawcza od radykalizacji behawioralnej?",
+        "answers": [
+          "Pierwsza dotyczy przekonań, a druga zachowań i podejmowanych działań.",
+          "Pierwsza dotyczy wyłącznie dorosłych, druga tylko młodzieży.",
+          "Obie oznaczają wyłącznie stosowanie przemocy fizycznej."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q031",
+        "question": "Jaką rolę odgrywa mechanizm moralnego usprawiedliwiania przemocy?",
+        "answers": [
+          "Powoduje automatyczne odrzucenie wszystkich ideologii.",
+          "Pozwala przedstawiać krzywdzenie innych jako działanie słuszne lub konieczne.",
+          "Uniemożliwia grupom tworzenie wspólnych celów."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q032",
+        "question": "Dlaczego pojedynczy sygnał nie wystarcza do oceny ryzyka radykalizacji?",
+        "answers": [
+          "Ponieważ żadne zachowanie nie ma znaczenia dla oceny sytuacji.",
+          "Ponieważ ryzyko można ocenić wyłącznie na podstawie deklaracji politycznych.",
+          "Ponieważ zachowania należy analizować w kontekście i w połączeniu z innymi przesłankami."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q033",
+        "question": "Jak działa mechanizm kozła ofiarnego w propagandzie ekstremistycznej?",
+        "answers": [
+          "Przypisuje wybranej grupie odpowiedzialność za złożone problemy.",
+          "Zachęca do badania wielu przyczyn danego zjawiska.",
+          "Ułatwia bezstronne rozwiązywanie sporów."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q034",
+        "question": "Co może ograniczać skutki polaryzacji w społeczności?",
+        "answers": [
+          "Wzmacnianie podziału na obozy bez wspólnych zasad.",
+          "Tworzenie przestrzeni do współpracy i rozmowy opartej na faktach.",
+          "Usuwanie wszystkich osób o odmiennych opiniach."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q035",
+        "question": "Dlaczego propaganda często wykorzystuje silne emocje?",
+        "answers": [
+          "Emocje gwarantują poprawną ocenę faktów.",
+          "Silne emocje zawsze zwiększają otwartość na krytykę.",
+          "Strach i gniew mogą osłabiać krytyczną ocenę przekazu."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q036",
+        "question": "Jak odróżnić radykalną krytykę systemu od nawoływania do przemocy?",
+        "answers": [
+          "Analizując treść, kontekst oraz to, czy przekaz zachęca do krzywdzenia ludzi.",
+          "Uznając każdą ostrą krytykę za przejaw terroryzmu.",
+          "Oceniając wyłącznie liczbę odbiorców danego przekazu."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q037",
+        "question": "Jakie znaczenie ma odejście od grupy ekstremistycznej?",
+        "answers": [
+          "Zawsze następuje natychmiast po jednej rozmowie.",
+          "Może wymagać czasu, bezpiecznych relacji i wsparcia w zmianie przekonań.",
+          "Jest niemożliwe po zaakceptowaniu skrajnych poglądów."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q038",
+        "question": "Dlaczego przeciwdziałanie radykalizacji powinno uwzględniać prawa człowieka?",
+        "answers": [
+          "Ponieważ prawa człowieka dotyczą wyłącznie osób bez kontrowersyjnych poglądów.",
+          "Ponieważ skuteczna profilaktyka wymaga rezygnacji z wolności słowa.",
+          "Ponieważ działania profilaktyczne nie powinny prowadzić do dyskryminacji ani bezpodstawnego piętnowania."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q039",
+        "question": "Jaką rolę pełni krytyczne myślenie w odporności na propagandę?",
+        "answers": [
+          "Pomaga sprawdzać dowody, rozpoznawać manipulację i porównywać źródła.",
+          "Pozwala uznawać za prawdziwe wszystkie informacje zgodne z własnymi poglądami.",
+          "Zastępuje potrzebę rozmowy z osobami o innych opiniach."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q080",
+        "question": "Jak teoria tożsamości społecznej pomaga wyjaśnić podatność na polaryzację?",
+        "answers": [
+          "Zakłada, że przynależność grupowa nie wpływa na ocenę innych.",
+          "Wyjaśnia, jak podział na własną grupę i grupy obce może sprzyjać faworyzowaniu swoich oraz uprzedzeniom wobec innych.",
+          "Dowodzi, że każda tożsamość grupowa prowadzi do przemocy."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q081",
+        "question": "Na czym polega proces coraz większego zaangażowania w grupę ekstremistyczną?",
+        "answers": [
+          "Na tym, że pierwsza rozmowa zawsze przesądza o przyszłych działaniach.",
+          "Na automatycznej utracie wszystkich wcześniejszych przekonań.",
+          "Na stopniowym zwiększaniu zaangażowania, gdy kolejne działania i zobowiązania utrudniają wycofanie się."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q082",
+        "question": "Jak mechanizm rozproszenia odpowiedzialności może wpływać na zachowanie w grupie?",
+        "answers": [
+          "Może powodować, że jednostki czują się mniej odpowiedzialne za szkodliwe działania wykonywane wspólnie.",
+          "Zawsze zwiększa indywidualną odpowiedzialność moralną.",
+          "Uniemożliwia podejmowanie wspólnych decyzji."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q083",
+        "question": "Dlaczego samo przekazanie faktów może nie wystarczyć do zmiany przekonań opartych na dezinformacji?",
+        "answers": [
+          "Ponieważ fakty nigdy nie mają znaczenia dla przekonań.",
+          "Ponieważ tożsamość grupowa, emocje i nieufność wobec źródeł mogą wpływać na interpretację dowodów.",
+          "Ponieważ każda osoba odrzuca wszystkie nowe informacje."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q084",
+        "question": "Czym jest moralne wyłączenie w kontekście przemocy grupowej?",
+        "answers": [
+          "Powszechnym przestrzeganiem zasad etycznych.",
+          "Umiejętnością rozwiązywania sporów bez konfliktów.",
+          "Ograniczeniem stosowania norm moralnych wobec osób uznanych za wrogów lub niegodnych ochrony."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q085",
+        "question": "Jak efekt konformizmu informacyjnego może sprzyjać radykalizacji?",
+        "answers": [
+          "Ludzie mogą uznawać poglądy grupy za prawdziwe, gdy zakładają, że inni dysponują lepszą wiedzą.",
+          "Ludzie zawsze odrzucają opinie większości.",
+          "Konformizm uniemożliwia wpływ grupy na jednostkę."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q086",
+        "question": "Dlaczego zbiorowe obwinianie może zwiększać ryzyko przemocy?",
+        "answers": [
+          "Ponieważ zawsze prowadzi do pojednania.",
+          "Ponieważ przenosi odpowiedzialność za złożone problemy na całą grupę i może uzasadniać jej krzywdzenie.",
+          "Ponieważ eliminuje stereotypy."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q087",
+        "question": "Jak odróżnić wskaźnik ryzyka od wiarygodnej oceny zagrożenia?",
+        "answers": [
+          "Wskaźnik ryzyka zawsze dowodzi zamiaru przemocy.",
+          "Ocena zagrożenia powinna opierać się wyłącznie na poglądach politycznych.",
+          "Wskaźnik jest przesłanką wymagającą interpretacji, a ocena uwzględnia kontekst, wiele informacji i możliwe alternatywne wyjaśnienia."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q088",
+        "question": "Czym różni się radykalizacja od deradykalizacji?",
+        "answers": [
+          "Radykalizacja może oznaczać przyjmowanie coraz bardziej skrajnych przekonań, a deradykalizacja ich stopniowe kwestionowanie lub odchodzenie od nich.",
+          "Oba terminy oznaczają wyłącznie zmianę miejsca zamieszkania.",
+          "Deradykalizacja oznacza obowiązkowe przyjęcie poglądów większości."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q089",
+        "question": "Jaką rolę może odgrywać potrzeba poznawczej domkniętości w podatności na propagandę?",
+        "answers": [
+          "Zawsze zwiększa gotowość do analizowania sprzecznych dowodów.",
+          "Może sprzyjać szybkiemu przyjmowaniu jednoznacznych wyjaśnień i niechęci do niepewności.",
+          "Uniemożliwia tworzenie trwałych przekonań."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q090",
+        "question": "Dlaczego publiczne upokarzanie osoby o skrajnych poglądach może utrudniać dialog?",
+        "answers": [
+          "Ponieważ zawsze powoduje natychmiastową zmianę poglądów.",
+          "Ponieważ eliminuje wpływ tożsamości grupowej.",
+          "Ponieważ może wzmacniać poczucie zagrożenia, defensywność i zależność od grupy."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q091",
+        "question": "Na czym polega paradoks przeciwdziałania radykalizacji z naruszeniem praw człowieka?",
+        "answers": [
+          "Działania mające chronić społeczeństwo mogą pogłębiać poczucie krzywdy i wykluczenia, jeśli są dyskryminujące lub nieproporcjonalne.",
+          "Każde działanie profilaktyczne musi prowadzić do radykalizacji.",
+          "Prawa człowieka nie mają znaczenia w polityce bezpieczeństwa."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q092",
+        "question": "Jakie znaczenie ma wiarygodność komunikatora w przeciwdziałaniu dezinformacji?",
+        "answers": [
+          "Wiarygodność oznacza, że każda jego wypowiedź jest prawdziwa.",
+          "Odbiorcy mogą być bardziej otwarci na informacje od źródeł, którym ufają, ale nadal należy sprawdzać dowody.",
+          "Wiarygodność źródła całkowicie zastępuje weryfikację treści."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q093",
+        "question": "Jak może działać mechanizm wzajemnego radykalizowania się przeciwnych grup?",
+        "answers": [
+          "Przeciwne grupy zawsze ograniczają swoje działania.",
+          "Konflikt automatycznie zmniejsza wrogość.",
+          "Działania jednej strony mogą być interpretowane jako zagrożenie i wykorzystywane przez drugą do uzasadniania własnej eskalacji."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q094",
+        "question": "Dlaczego należy rozróżniać przyczyny, czynniki ryzyka i czynniki ochronne radykalizacji?",
+        "answers": [
+          "Ponieważ opisują różne elementy sytuacji, a żaden pojedynczy czynnik nie przesądza o rozwoju radykalizacji.",
+          "Ponieważ każdy czynnik ryzyka jest bezpośrednią przyczyną przemocy.",
+          "Ponieważ czynniki ochronne nie mają wpływu na przebieg procesu."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q095",
+        "question": "Jak dezinformacja może wykorzystywać heurystykę dostępności?",
+        "answers": [
+          "Przez przedstawianie wyłącznie informacji trudnych do zapamiętania.",
+          "Przez eksponowanie wyrazistych lub często powtarzanych przykładów, które mogą wydawać się częstsze niż są w rzeczywistości.",
+          "Przez uniemożliwianie odbiorcom przypominania sobie wydarzeń."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q096",
+        "question": "Co oznacza podejście uwzględniające wiele poziomów przeciwdziałania radykalizacji?",
+        "answers": [
+          "Skupienie wszystkich działań wyłącznie na karaniu jednostek.",
+          "Założenie, że problem można rozwiązać jedynie przez blokowanie internetu.",
+          "Łączenie wsparcia indywidualnego, działań rodzinnych i szkolnych, inicjatyw społecznych oraz odpowiedzialnej polityki publicznej."
+        ],
+        "correctAnswer": 2
+      },
+      {
+        "id": "q097",
+        "question": "Dlaczego poczucie sprawiedliwości proceduralnej może wzmacniać zaufanie do instytucji?",
+        "answers": [
+          "Ponieważ ludzie częściej akceptują decyzje, gdy procedury są bezstronne, przejrzyste i pozwalają im zostać wysłuchanymi.",
+          "Ponieważ sprawiedliwość proceduralna wymaga zgody z każdą decyzją.",
+          "Ponieważ zaufanie zależy wyłącznie od surowości kar."
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": "q098",
+        "question": "Jak można oceniać skuteczność programu przeciwdziałania radykalizacji?",
+        "answers": [
+          "Wyłącznie na podstawie liczby osób objętych programem.",
+          "Analizując określone cele, zmiany w czasie, jakość wdrożenia i możliwe niezamierzone skutki.",
+          "Uznając program za skuteczny natychmiast po jego rozpoczęciu."
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": "q099",
+        "question": "Dlaczego bezpieczne relacje społeczne mogą wspierać odchodzenie od ekstremizmu?",
+        "answers": [
+          "Ponieważ automatycznie usuwają wszystkie skrajne przekonania.",
+          "Ponieważ zastępują każdą potrzebę profesjonalnej pomocy.",
+          "Ponieważ mogą zapewniać alternatywne źródła przynależności, wsparcia i uznania poza grupą ekstremistyczną."
+        ],
+        "correctAnswer": 2
+      }
+    ]
+  }
+}

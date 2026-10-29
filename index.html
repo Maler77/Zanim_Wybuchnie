@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prosta przeglądarkowa baza gry.">
+    <title>Projekt konkursowy — gra</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script type="module" src="src/js/main.js"></script>
+</head>
+<body>
+    <main class="page">
+        <section class="game" aria-labelledby="game-title">
+            <h2 id="game-title" class="visually-hidden">Obszar gry</h2>
+            <canvas class="game__viewport" aria-label="Obszar gry 2D" role="img"></canvas>
+
+
+            <!-- Menu główne: ekran tytułowy (tło, logo, przyciski). Grafiki: assets/menu_*.png (tools/make_menu_art.py).
+                 Wszystko w .title-stage skaluje się razem, jak obraz gry (1 piksel gry = --g). -->
+            <div class="menu menu--title" data-screen="main" role="dialog" aria-labelledby="menu-main-title" hidden>
+                <div class="title-stage" data-texture="menuBackground">
+                    <div class="title-player" aria-hidden="true"></div>
+                    <h3 id="menu-main-title" class="title-logo">
+                        <img src="assets/menu_logo.png" alt="Zanim wybuchnie" width="400" height="132">
+                        <span class="title-logo__spark" aria-hidden="true"></span>
+                    </h3>
+                    <p class="title-subtitle">historia jednej grupy</p>
+                    <nav class="title-buttons" aria-label="Menu główne">
+                        <button class="menu__button menu__button--primary" type="button" data-action="continue" id="menu-continue">Graj</button>
+                        <button class="menu__button" type="button" data-action="levels">Wybierz poziom</button>
+                        <button class="menu__button" type="button" data-action="controls">Sterowanie</button>
+                        <button class="menu__button sound-toggle" type="button" aria-pressed="true">Dźwięk: włączony</button>
+                    </nav>
+                    <p class="title-footer">Esc – pauza &nbsp;·&nbsp; F11 – pełny ekran</p>
+                </div>
+            </div>
+
+            <!-- Wybór poziomu (karty tworzy main.js z levels.js) -->
+            <div class="menu menu--panel" data-screen="levels" role="dialog" aria-labelledby="menu-levels-title" hidden>
+                <h3 id="menu-levels-title" class="menu__title">Wybierz poziom</h3>
+                <div class="level-list" id="level-list"></div>
+                <p class="menu__hint" id="debug-hint" hidden>Tryb debug: wszystkie poziomy są odblokowane (klawisz /)</p>
+                <button class="menu__button" type="button" data-action="back">Cofnij</button>
+                <button class="menu__link" type="button" data-action="reset-progress" hidden>Resetuj postęp</button>
+            </div>
+
+            <!-- Szczegółowa lista sterowania -->
+            <div class="menu menu--panel" data-screen="controls" role="dialog" aria-labelledby="menu-controls-title" hidden>
+                <h3 id="menu-controls-title" class="menu__title">Sterowanie</h3>
+                <ul class="controls-list" id="controls-list">
+                    <li><span><kbd>A</kbd><kbd>D</kbd> / <kbd>←</kbd><kbd>→</kbd></span><span>ruch</span></li>
+                    <li><span><kbd>Spacja</kbd> / <kbd>W</kbd> / <kbd>↑</kbd></span><span>skok (poza hakiem)</span></li>
+                    <li><span><kbd>Spacja</kbd> przy ścianie</span><span>odbicie</span></li>
+                    <li><span><kbd>Shift</kbd></span><span>dash</span></li>
+                    <li><span><kbd>Q</kbd></span><span>zaczep / zmien cel / odepnij</span></li>
+                    <li><span><kbd>W</kbd> / <kbd>↑</kbd></span><span>skracaj lin&#281;</span></li>
+                    <li><span><kbd>S</kbd> / <kbd>↓</kbd></span><span>wyd&#322;u&#380;aj lin&#281;</span></li>
+                    <li><span><kbd>S</kbd></span><span>zejście przez platformę jednostronną</span></li>
+                    <li><span><kbd>F</kbd></span><span>bomba dymna (najbliższy wróg)</span></li>
+                    <li><span><kbd>E</kbd></span><span>zakuj z bliska / rozbrój bombę</span></li>
+                    <li><span><kbd>E</kbd></span><span>silnego zakuj od tyłu</span></li>
+                    <li><span>Kolce, wróg z przodu</span><span>−1 HP, checkpoint</span></li>
+                    <li><span><kbd>Esc</kbd></span><span>pauza</span></li>
+                    <li><span><kbd>/</kbd></span><span>debug</span></li>
+                </ul>
+                <button class="menu__button" type="button" data-action="back">Cofnij</button>
+            </div>
+
+            <!-- Menu pauzy (Esc podczas gry) -->
+            <div class="menu" data-screen="pause" role="dialog" aria-labelledby="menu-pause-title" hidden>
+                <h3 id="menu-pause-title" class="menu__title">Pauza</h3>
+                <button class="menu__button menu__button--primary" type="button" data-action="resume">Wznów</button>
+                <button class="menu__button" type="button" data-action="controls">Sterowanie</button>
+                <button class="menu__button" type="button" data-action="restart">Zacznij od początku</button>
+                <button class="menu__button sound-toggle" type="button" aria-pressed="true">Dźwięk: włączony</button>
+                <button class="menu__button" type="button" data-action="quit">Menu główne</button>
+            </div>
+
+            <!-- Question content is loaded from src/data/questions.json when a bomb is activated. -->
+            <div class="menu" data-screen="bomb" role="dialog" aria-labelledby="bomb-title" hidden>
+                <div class="bomb-panel" id="bomb-panel" data-kind="bomb" data-texture="bombPanel">
+                    <!-- Bomba z bliska: po lewej płytka z zegarem, po prawej trzy laski dynamitu, a między nimi trzy kable.
+                         Każdy kabel przechodzi przez jedną odpowiedź i po jej wybraniu zostaje przecięty (main.js dodaje wierszowi klasę is-cut).
+                         Grafiki: assets/bomb_ui_*.png (tools/make_bomb_art.py), układ i animacje: src/css/style.css. -->
+                    <div class="bomb-board" id="bomb-board">
+                        <div class="bomb-board__pcb">
+                            <p class="bomb-panel__timer" id="bomb-timer" aria-label="Pozostały czas"></p>
+                            <span class="bomb-board__part bomb-board__part--chip" aria-hidden="true"></span>
+                            <span class="bomb-board__part bomb-board__part--buzzer" aria-hidden="true"></span>
+                            <span class="bomb-board__part bomb-board__part--coil" aria-hidden="true"></span>
+                        </div>
+                        <div class="bomb-board__head">
+                            <h3 class="bomb-panel__title" id="bomb-title"></h3>
+                            <p class="bomb-panel__penalty" id="bomb-penalty" hidden></p>
+                        </div>
+                        <!-- Za odpowiedziami kable zbiegają się w jedno miejsce (płótno rysuje wirefunnel.js) i prowadzą do pęku dynamitu,
+                             a w poziomach z panelem do nadajnika (wariant data-kind="panel" na .bomb-panel). -->
+                        <div class="bomb-board__merge" aria-hidden="true"><canvas id="bomb-merge"></canvas></div>
+                        <div class="bomb-board__charge" aria-hidden="true">
+                            <span class="bomb-board__stick"></span>
+                            <span class="bomb-board__stick"></span>
+                            <span class="bomb-board__stick"></span>
+                            <span class="bomb-board__transmitter"></span>
+                        </div>
+                        <div class="bomb-board__row" data-wire="red">
+                            <span class="bomb-board__terminal" aria-hidden="true"></span>
+                            <span class="bomb-board__wire bomb-board__wire--left" aria-hidden="true"></span>
+                            <button class="menu__button bomb-panel__option" type="button" data-action="answer" data-index="0"></button>
+                            <span class="bomb-board__wire bomb-board__wire--right" aria-hidden="true"></span>
+                        </div>
+                        <div class="bomb-board__row" data-wire="yellow">
+                            <span class="bomb-board__terminal" aria-hidden="true"></span>
+                            <span class="bomb-board__wire bomb-board__wire--left" aria-hidden="true"></span>
+                            <button class="menu__button bomb-panel__option" type="button" data-action="answer" data-index="1"></button>
+                            <span class="bomb-board__wire bomb-board__wire--right" aria-hidden="true"></span>
+                        </div>
+                        <div class="bomb-board__row" data-wire="blue">
+                            <span class="bomb-board__terminal" aria-hidden="true"></span>
+                            <span class="bomb-board__wire bomb-board__wire--left" aria-hidden="true"></span>
+                            <button class="menu__button bomb-panel__option" type="button" data-action="answer" data-index="2"></button>
+                            <span class="bomb-board__wire bomb-board__wire--right" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <p class="menu__hint">Wybierz myszką lub klawiszami A, B, C. Esc lub Q zamyka panel. Uwaga: gra toczy się dalej!</p>
+                </div>
+            </div>
+
+            <!-- Ekran fabuły: tytuł, czat grupowy, scena z policją i zakończenie. Warstwy buduje storyplayer.js, treść: src/data/story.json -->
+            <div class="menu" data-screen="story" role="dialog" aria-label="Fabuła" hidden>
+                <div class="story-root" id="story-root"></div>
+            </div>
+
+            <!-- Ekran przegranej -->
+            <div class="menu" data-screen="lose" data-texture="loseBackground" role="dialog" aria-labelledby="lose-title" hidden>
+                <h3 id="lose-title" class="menu__title menu__title--lose">Przegrana</h3>
+                <p class="menu__text" id="lose-reason"></p>
+                <button class="menu__button menu__button--primary" type="button" data-action="retry">Spróbuj ponownie</button>
+                <button class="menu__button" type="button" data-action="quit">Powrót do menu</button>
+            </div>
+
+            <!-- Ekran wygranej -->
+            <div class="menu" data-screen="win" data-texture="winBackground" role="dialog" aria-labelledby="win-title" hidden>
+                <h3 id="win-title" class="menu__title menu__title--win">Wygrana!</h3>
+                <p class="menu__text" id="win-summary"></p>
+                <p class="menu__text" id="win-time"></p>
+                <button class="menu__button menu__button--primary" type="button" id="win-next" data-action="next">Następny poziom</button>
+                <button class="menu__button" type="button" data-action="quit">Powrót do menu</button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

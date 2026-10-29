@@ -1,0 +1,437 @@
+{
+ "name": "Poziom 3",
+ "subtitle": "Nocna zmiana",
+ "thumbnail": "level3Thumbnail",
+ "questionCategory": "medium",
+ "background": [
+  "cityNight"
+ ],
+ "timeLimit": 130,
+ "width": 4800,
+ "height": 488,
+ "hp": 4,
+ "spawn": {
+  "x": 64,
+  "y": 448
+ },
+ "platforms": [
+  {
+   "x": 0,
+   "y": 448,
+   "w": 4800,
+   "h": 40,
+   "texture": "assets/l3_pavement.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 60,
+   "y": 416,
+   "w": 16,
+   "h": 32,
+   "texture": "assets/l3_hydrant.png",
+   "solid": false
+  },
+  {
+   "x": 106,
+   "y": 148,
+   "w": 100,
+   "h": 300,
+   "texture": "assets/l3_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 230,
+   "y": 384,
+   "w": 32,
+   "h": 64,
+   "texture": "assets/l3_phone.png",
+   "solid": false
+  },
+  {
+   "x": 330,
+   "y": 416,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l3_crate.png"
+  },
+  {
+   "x": 430,
+   "y": 408,
+   "w": 112,
+   "h": 40,
+   "texture": "assets/l3_taxi.png",
+   "solid": false
+  },
+  {
+   "x": 430,
+   "y": 424,
+   "w": 112,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 454,
+   "y": 410,
+   "w": 60,
+   "h": 14,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 540,
+   "y": 320,
+   "w": 64,
+   "h": 128,
+   "texture": "assets/l3_tree.png",
+   "solid": false
+  },
+  {
+   "x": 620,
+   "y": 288,
+   "w": 256,
+   "h": 160,
+   "texture": "assets/l3_trelvos_hotel.png",
+   "solid": false
+  },
+  {
+   "x": 852,
+   "y": 148,
+   "w": 100,
+   "h": 300,
+   "texture": "assets/l3_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 1010,
+   "y": 256,
+   "w": 224,
+   "h": 192,
+   "texture": "assets/l3_flat.png"
+  },
+  {
+   "x": 954,
+   "y": 240,
+   "w": 56,
+   "h": 208,
+   "texture": "assets/l3_fire_escape.png",
+   "solid": false
+  },
+  {
+   "x": 954,
+   "y": 304,
+   "w": 56,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 954,
+   "y": 352,
+   "w": 56,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 954,
+   "y": 400,
+   "w": 56,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 1426,
+   "y": 256,
+   "w": 192,
+   "h": 192,
+   "texture": "assets/l3_office.png"
+  },
+  {
+   "x": 1738,
+   "y": 70,
+   "w": 64,
+   "h": 378,
+   "texture": "assets/l3_mast.png",
+   "solid": false
+  },
+  {
+   "x": 1758,
+   "y": 90,
+   "w": 24,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent",
+   "solid": false,
+   "grappleable": true
+  },
+  {
+   "x": 1922,
+   "y": 256,
+   "w": 224,
+   "h": 192,
+   "texture": "assets/l3_trelvos_tower.png"
+  },
+  {
+   "x": 1938,
+   "y": 208,
+   "w": 128,
+   "h": 48,
+   "texture": "assets/l3_trelvos_sign.png",
+   "solid": false
+  },
+  {
+   "x": 2212,
+   "y": 148,
+   "w": 100,
+   "h": 300,
+   "texture": "assets/l3_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 2336,
+   "y": 416,
+   "w": 64,
+   "h": 32,
+   "texture": "assets/l3_bench.png",
+   "solid": false
+  },
+  {
+   "x": 2546,
+   "y": 320,
+   "w": 64,
+   "h": 128,
+   "texture": "assets/l3_tree.png",
+   "solid": false
+  },
+  {
+   "x": 2650,
+   "y": 408,
+   "w": 64,
+   "h": 40,
+   "texture": "assets/l3_dumpster.png"
+  },
+  {
+   "x": 2760,
+   "y": 160,
+   "w": 224,
+   "h": 288,
+   "texture": "assets/l3_gate.png",
+   "solid": false
+  },
+  {
+   "x": 2760,
+   "y": 160,
+   "w": 224,
+   "h": 224,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 3080,
+   "y": 240,
+   "w": 192,
+   "h": 208,
+   "texture": "assets/l3_club.png"
+  },
+  {
+   "x": 3096,
+   "y": 192,
+   "w": 128,
+   "h": 48,
+   "texture": "assets/l3_trelvos_sign.png",
+   "solid": false
+  },
+  {
+   "x": 3296,
+   "y": 148,
+   "w": 100,
+   "h": 300,
+   "texture": "assets/l3_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 3420,
+   "y": 384,
+   "w": 32,
+   "h": 64,
+   "texture": "assets/l3_phone.png",
+   "solid": false
+  },
+  {
+   "x": 3520,
+   "y": 384,
+   "w": 96,
+   "h": 64,
+   "texture": "assets/l3_container.png"
+  },
+  {
+   "x": 3700,
+   "y": 392,
+   "w": 128,
+   "h": 56,
+   "texture": "assets/l3_van.png",
+   "solid": false
+  },
+  {
+   "x": 3701,
+   "y": 395,
+   "w": 90,
+   "h": 44,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 3791,
+   "y": 405,
+   "w": 37,
+   "h": 34,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 4090,
+   "y": 416,
+   "w": 16,
+   "h": 32,
+   "texture": "assets/l3_hydrant.png",
+   "solid": false
+  },
+  {
+   "x": 4150,
+   "y": 416,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l3_crate.png"
+  },
+  {
+   "x": 4186,
+   "y": 148,
+   "w": 100,
+   "h": 300,
+   "texture": "assets/l3_lamp.png",
+   "solid": false
+  },
+  {
+   "x": 4576,
+   "y": 320,
+   "w": 224,
+   "h": 128,
+   "texture": "assets/l3_depot.png",
+   "solid": false
+  }
+ ],
+ "bombs": [
+  {
+   "x": 748,
+   "y": 448
+  },
+  {
+   "x": 2090,
+   "y": 256
+  },
+  {
+   "x": 3248,
+   "y": 240
+  }
+ ],
+ "enemies": [
+  {
+   "type": "weak",
+   "id": "weak-1",
+   "x": 2480,
+   "y": 448,
+   "direction": -1,
+   "speed": 48,
+   "area": {
+    "x1": 2360,
+    "y1": 308,
+    "x2": 2600,
+    "y2": 448
+   }
+  },
+  {
+   "type": "strong",
+   "id": "strong-1",
+   "x": 3960,
+   "y": 448,
+   "direction": -1,
+   "speed": 36,
+   "area": {
+    "x1": 3860,
+    "y1": 308,
+    "x2": 4020,
+    "y2": 448
+   }
+  },
+  {
+   "type": "weak",
+   "id": "weak-2",
+   "x": 4380,
+   "y": 448,
+   "direction": -1,
+   "speed": 52,
+   "area": {
+    "x1": 4260,
+    "y1": 308,
+    "x2": 4500,
+    "y2": 448
+   }
+  }
+ ],
+ "checkpoints": [
+  {
+   "x": 1050,
+   "y": 256
+  },
+  {
+   "x": 1466,
+   "y": 256
+  },
+  {
+   "x": 1952,
+   "y": 256
+  },
+  {
+   "x": 2200,
+   "y": 448
+  },
+  {
+   "x": 2700,
+   "y": 448
+  },
+  {
+   "x": 3480,
+   "y": 448
+  },
+  {
+   "x": 4100,
+   "y": 448
+  }
+ ],
+ "spikes": [
+  {
+   "x": 1234,
+   "y": 440,
+   "w": 192,
+   "h": 8
+  },
+  {
+   "x": 1618,
+   "y": 440,
+   "w": 130,
+   "h": 8
+  },
+  {
+   "x": 1792,
+   "y": 440,
+   "w": 130,
+   "h": 8
+  }
+ ],
+ "jumpPads": []
+}

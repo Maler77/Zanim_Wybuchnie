@@ -1,0 +1,1045 @@
+{
+ "name": "Poziom 6",
+ "subtitle": "Kamil",
+ "thumbnail": "level6Thumbnail",
+ "mode": "boss",
+ "questionCategory": "hard",
+ "background": [
+  "interior"
+ ],
+ "timeLimit": 420,
+ "width": 10252,
+ "height": 1400,
+ "hp": 1,
+ "spawn": {
+  "x": 220,
+  "y": 1200
+ },
+ "platforms": [
+  {
+   "x": 0,
+   "y": 700,
+   "w": 1642,
+   "h": 500,
+   "texture": "assets/l7_wall_dock.png",
+   "solid": false
+  },
+  {
+   "x": 1642,
+   "y": 700,
+   "w": 2770,
+   "h": 500,
+   "texture": "assets/l7_wall_store.png",
+   "solid": false
+  },
+  {
+   "x": 4412,
+   "y": 700,
+   "w": 1540,
+   "h": 500,
+   "texture": "assets/l7_wall_canteen.png",
+   "solid": false
+  },
+  {
+   "x": 8252,
+   "y": 700,
+   "w": 2000,
+   "h": 400,
+   "texture": "assets/l7_wall_server.png",
+   "solid": false
+  },
+  {
+   "x": 6128,
+   "y": 700,
+   "w": 2124,
+   "h": 200,
+   "texture": "assets/l7_wall_corridor.png",
+   "solid": false
+  },
+  {
+   "x": 6032,
+   "y": 700,
+   "w": 96,
+   "h": 500,
+   "texture": "assets/l7_wall_shaft.png",
+   "solid": false
+  },
+  {
+   "x": 0,
+   "y": 560,
+   "w": 10252,
+   "h": 140,
+   "texture": "assets/l7_ceiling.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 0,
+   "y": 1200,
+   "w": 1590,
+   "h": 200,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 0,
+   "y": 1200,
+   "w": 1590,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 0,
+   "y": 1232,
+   "w": 1590,
+   "h": 168,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 1702,
+   "y": 1200,
+   "w": 2650,
+   "h": 200,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 1702,
+   "y": 1200,
+   "w": 2650,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 1702,
+   "y": 1232,
+   "w": 2650,
+   "h": 168,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 4464,
+   "y": 1200,
+   "w": 1664,
+   "h": 200,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 4464,
+   "y": 1200,
+   "w": 1664,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 4464,
+   "y": 1232,
+   "w": 1664,
+   "h": 168,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6128,
+   "y": 900,
+   "w": 344,
+   "h": 500,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 6128,
+   "y": 900,
+   "w": 344,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6128,
+   "y": 932,
+   "w": 344,
+   "h": 468,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6584,
+   "y": 900,
+   "w": 228,
+   "h": 500,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 6584,
+   "y": 900,
+   "w": 228,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6584,
+   "y": 932,
+   "w": 228,
+   "h": 468,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 7340,
+   "y": 900,
+   "w": 912,
+   "h": 500,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 7340,
+   "y": 900,
+   "w": 912,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 7340,
+   "y": 932,
+   "w": 912,
+   "h": 468,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 8252,
+   "y": 1100,
+   "w": 980,
+   "h": 300,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 8252,
+   "y": 1100,
+   "w": 980,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 8252,
+   "y": 1132,
+   "w": 980,
+   "h": 268,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9344,
+   "y": 1100,
+   "w": 908,
+   "h": 300,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 9344,
+   "y": 1100,
+   "w": 908,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9344,
+   "y": 1132,
+   "w": 908,
+   "h": 268,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 1590,
+   "y": 1200,
+   "w": 112,
+   "h": 192,
+   "texture": "assets/l7_shaft.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 1590,
+   "y": 1392,
+   "w": 112,
+   "h": 8,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 4352,
+   "y": 1200,
+   "w": 112,
+   "h": 192,
+   "texture": "assets/l7_shaft.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 4352,
+   "y": 1392,
+   "w": 112,
+   "h": 8,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 6472,
+   "y": 900,
+   "w": 112,
+   "h": 64,
+   "texture": "assets/l7_shaft.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6472,
+   "y": 964,
+   "w": 112,
+   "h": 8,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 9232,
+   "y": 1100,
+   "w": 112,
+   "h": 200,
+   "texture": "assets/l7_shaft.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9232,
+   "y": 1300,
+   "w": 112,
+   "h": 8,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 6464,
+   "y": 860,
+   "w": 128,
+   "h": 40,
+   "texture": "assets/l7_pit_barrier.png",
+   "solid": false
+  },
+  {
+   "x": 420,
+   "y": 1168,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 600,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 830,
+   "y": 1152,
+   "w": 96,
+   "h": 48,
+   "texture": "assets/l7_cart.png"
+  },
+  {
+   "x": 1010,
+   "y": 1168,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 1180,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 1260,
+   "y": 1168,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 1292,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 1892,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 2092,
+   "y": 1168,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 2398,
+   "y": 1070,
+   "w": 12,
+   "h": 130,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 2528,
+   "y": 1070,
+   "w": 12,
+   "h": 130,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 2386,
+   "y": 1026,
+   "w": 216,
+   "h": 30,
+   "texture": "assets/l7_rail.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 2874,
+   "y": 1090,
+   "w": 12,
+   "h": 110,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 3004,
+   "y": 1090,
+   "w": 12,
+   "h": 110,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 3134,
+   "y": 1090,
+   "w": 12,
+   "h": 110,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 2862,
+   "y": 1046,
+   "w": 390,
+   "h": 30,
+   "texture": "assets/l7_rail.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 2386,
+   "y": 1056,
+   "w": 216,
+   "h": 14,
+   "texture": "assets/l7_catwalk.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 2862,
+   "y": 1076,
+   "w": 390,
+   "h": 14,
+   "texture": "assets/l7_catwalk.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 2716,
+   "y": 850,
+   "w": 32,
+   "h": 80,
+   "texture": "assets/l7_hoist.png",
+   "solid": false
+  },
+  {
+   "x": 2720,
+   "y": 906,
+   "w": 24,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent",
+   "solid": false,
+   "grappleable": true
+  },
+  {
+   "x": 3552,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 3732,
+   "y": 1168,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 3764,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 3912,
+   "y": 1152,
+   "w": 96,
+   "h": 48,
+   "texture": "assets/l7_cart.png"
+  },
+  {
+   "x": 4112,
+   "y": 1136,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 4634,
+   "y": 1160,
+   "w": 96,
+   "h": 40,
+   "texture": "assets/l7_table.png"
+  },
+  {
+   "x": 4864,
+   "y": 1136,
+   "w": 192,
+   "h": 64,
+   "texture": "assets/l7_counter.png"
+  },
+  {
+   "x": 5144,
+   "y": 1160,
+   "w": 96,
+   "h": 40,
+   "texture": "assets/l7_table.png"
+  },
+  {
+   "x": 5324,
+   "y": 1152,
+   "w": 96,
+   "h": 48,
+   "texture": "assets/l7_cart.png"
+  },
+  {
+   "x": 5504,
+   "y": 1136,
+   "w": 192,
+   "h": 64,
+   "texture": "assets/l7_counter.png"
+  },
+  {
+   "x": 5704,
+   "y": 1160,
+   "w": 96,
+   "h": 40,
+   "texture": "assets/l7_table.png"
+  },
+  {
+   "x": 5952,
+   "y": 700,
+   "w": 80,
+   "h": 430,
+   "texture": "assets/l7_bulkhead.png"
+  },
+  {
+   "x": 6232,
+   "y": 836,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 6692,
+   "y": 868,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 6812,
+   "y": 1040,
+   "w": 528,
+   "h": 360,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 6908,
+   "y": 900,
+   "w": 304,
+   "h": 94,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 6812,
+   "y": 900,
+   "w": 528,
+   "h": 140,
+   "texture": "assets/l7_duct_shaft.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6908,
+   "y": 900,
+   "w": 304,
+   "h": 32,
+   "texture": "assets/l7_floor.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6908,
+   "y": 932,
+   "w": 304,
+   "h": 62,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6908,
+   "y": 994,
+   "w": 304,
+   "h": 46,
+   "texture": "assets/l7_tunnel.png",
+   "solid": false
+  },
+  {
+   "x": 6812,
+   "y": 1040,
+   "w": 528,
+   "h": 360,
+   "texture": "assets/l7_concrete.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 6812,
+   "y": 900,
+   "w": 96,
+   "h": 8,
+   "texture": "assets/l7_grate.png",
+   "textureMode": "tile",
+   "oneWay": true
+  },
+  {
+   "x": 7212,
+   "y": 900,
+   "w": 128,
+   "h": 8,
+   "texture": "assets/l7_grate.png",
+   "textureMode": "tile",
+   "oneWay": true
+  },
+  {
+   "x": 7490,
+   "y": 836,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 7670,
+   "y": 868,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l7_pallet.png"
+  },
+  {
+   "x": 7702,
+   "y": 836,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 7880,
+   "y": 852,
+   "w": 96,
+   "h": 48,
+   "texture": "assets/l7_cart.png"
+  },
+  {
+   "x": 8070,
+   "y": 836,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_crate.png"
+  },
+  {
+   "x": 8412,
+   "y": 1036,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_ups.png"
+  },
+  {
+   "x": 8592,
+   "y": 1036,
+   "w": 96,
+   "h": 64,
+   "texture": "assets/l7_cooler.png"
+  },
+  {
+   "x": 8792,
+   "y": 1036,
+   "w": 64,
+   "h": 64,
+   "texture": "assets/l7_ups.png"
+  },
+  {
+   "x": 8952,
+   "y": 1036,
+   "w": 96,
+   "h": 64,
+   "texture": "assets/l7_cooler.png"
+  },
+  {
+   "x": 9224,
+   "y": 1060,
+   "w": 128,
+   "h": 40,
+   "texture": "assets/l7_pit_barrier.png",
+   "solid": false
+  },
+  {
+   "x": 9580,
+   "y": 964,
+   "w": 12,
+   "h": 136,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9692,
+   "y": 964,
+   "w": 12,
+   "h": 136,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9572,
+   "y": 920,
+   "w": 140,
+   "h": 30,
+   "texture": "assets/l7_rail.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9572,
+   "y": 950,
+   "w": 140,
+   "h": 14,
+   "texture": "assets/l7_catwalk.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 9910,
+   "y": 964,
+   "w": 12,
+   "h": 136,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 10082,
+   "y": 964,
+   "w": 12,
+   "h": 136,
+   "texture": "assets/l7_post.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9902,
+   "y": 920,
+   "w": 200,
+   "h": 30,
+   "texture": "assets/l7_rail.png",
+   "textureMode": "tile",
+   "solid": false
+  },
+  {
+   "x": 9902,
+   "y": 950,
+   "w": 200,
+   "h": 14,
+   "texture": "assets/l7_catwalk.png",
+   "textureMode": "tile"
+  }
+ ],
+ "bombs": [
+  {
+   "x": 3092,
+   "y": 1076
+  },
+  {
+   "x": 7062,
+   "y": 1040
+  },
+  {
+   "x": 10012,
+   "y": 950
+  }
+ ],
+ "enemies": [
+  {
+   "type": "boss",
+   "x": 60,
+   "y": 1200,
+   "id": "kamil",
+   "wait": 4,
+   "respawnDistance": 560,
+   "respawns": [
+    {
+     "x": 150,
+     "y": 1200,
+     "stage": 0,
+     "side": "left"
+    },
+    {
+     "x": 770,
+     "y": 1200,
+     "stage": 0,
+     "side": "left"
+    },
+    {
+     "x": 1500,
+     "y": 1200,
+     "stage": 0,
+     "side": "left"
+    },
+    {
+     "x": 2010,
+     "y": 1200,
+     "stage": 0,
+     "side": "left"
+    },
+    {
+     "x": 3670,
+     "y": 1200,
+     "stage": 0,
+     "side": "left"
+    },
+    {
+     "x": 1500,
+     "y": 1200,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 2300,
+     "y": 1200,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 3670,
+     "y": 1200,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 4790,
+     "y": 1200,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 4810,
+     "y": 1200,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 5860,
+     "y": 1200,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 6350,
+     "y": 900,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 6410,
+     "y": 900,
+     "stage": 1,
+     "side": "left"
+    },
+    {
+     "x": 6350,
+     "y": 900,
+     "stage": 2,
+     "side": "left"
+    },
+    {
+     "x": 7430,
+     "y": 900,
+     "stage": 2,
+     "side": "left"
+    },
+    {
+     "x": 7820,
+     "y": 900,
+     "stage": 2,
+     "side": "left"
+    },
+    {
+     "x": 8530,
+     "y": 1100,
+     "stage": 2,
+     "side": "left"
+    },
+    {
+     "x": 8530,
+     "y": 1100,
+     "stage": 2,
+     "side": "left"
+    },
+    {
+     "x": 9110,
+     "y": 1100,
+     "stage": 2,
+     "side": "left"
+    }
+   ]
+  }
+ ],
+ "checkpoints": [
+  {
+   "x": 1732,
+   "y": 1200
+  },
+  {
+   "x": 4494,
+   "y": 1200
+  },
+  {
+   "x": 6172,
+   "y": 900
+  },
+  {
+   "x": 8152,
+   "y": 900
+  },
+  {
+   "x": 8332,
+   "y": 1100
+  }
+ ],
+ "spikes": [
+  {
+   "x": 1590,
+   "y": 1384,
+   "w": 112,
+   "h": 8
+  },
+  {
+   "x": 4352,
+   "y": 1384,
+   "w": 112,
+   "h": 8
+  },
+  {
+   "x": 6472,
+   "y": 956,
+   "w": 112,
+   "h": 8
+  },
+  {
+   "x": 9232,
+   "y": 1292,
+   "w": 112,
+   "h": 8
+  }
+ ],
+ "jumpPads": [
+  {
+   "x": 2320,
+   "y": 1192,
+   "w": 64,
+   "h": 8
+  },
+  {
+   "x": 7244,
+   "y": 1032,
+   "w": 64,
+   "h": 8
+  },
+  {
+   "x": 9500,
+   "y": 1092,
+   "w": 64,
+   "h": 8
+  }
+ ]
+}

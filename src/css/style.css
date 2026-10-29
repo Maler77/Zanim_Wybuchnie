@@ -1,0 +1,988 @@
+:root {
+    color-scheme: dark;
+    font-family: system-ui, sans-serif;
+    background: #10151c;
+    color: #e8edf4;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+    min-width: 320px;
+    margin: 0;
+    overflow: hidden; /* strona zawiera tylko grę, która zawsze wypełnia okno, więc nie ma przewijania */
+    background: radial-gradient(ellipse at top, #1b2937, #10151c 65%);
+}
+
+/* Nie potrzebne, ale jak coś to jeszcze zostawiam */
+/* .page {
+    width: min(100% - 2rem, 960px);
+    margin: 0 auto;
+    padding: clamp(2rem, 7vw, 5rem) 0;
+} */
+
+.page__header { margin-bottom: 2rem; }
+.eyebrow { margin: 0 0 .5rem; color: #79d7c4; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+.intro { margin: .75rem 0 0; color: #aab7c5; }
+
+/* Gra (menu, rozgrywka i pauza) zawsze wypełnia całe okno przeglądarki. Dzięki temu strona
+   nigdy nie jest wyższa niż okno i nie ma scrollbara, a skalowaniem obrazu zajmuje się viewport.js. */
+.game {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; /* na telefonach: wysokość bez paska adresu */
+    background: #17212c;
+}
+
+.game__viewport {
+    display: block;
+    image-rendering: pixelated; /* gdyby przeglądarka skalowała canvas, piksele zostają ostre */
+    width: 100%;
+    height: 100%;
+    background: #111a23;
+}
+
+/* ---------- Menu (główne, pauza, okno bomby, ekrany końcowe) ---------- */
+
+.menu {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    padding: 1.5rem;
+    background: rgb(10 15 22 / .62);
+    backdrop-filter: blur(3px);
+}
+
+/* Bez tej reguły display:flex nadpisałby atrybut hidden. */
+.menu[hidden] { display: none; }
+
+.menu__title { margin: 0 0 .75rem; font-size: clamp(1.5rem, 4vw, 2.25rem); }
+
+.menu__button {
+    width: min(100%, 17rem);
+    padding: .85rem 1.4rem;
+    border: 1px solid #435464;
+    border-radius: .6rem;
+    background: #1d2a38;
+    color: inherit;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menu__button:hover { background: #27384a; }
+
+.menu__button--primary { border-color: #a4f1dc; background: #79d7c4; color: #10201f; }
+.menu__button--primary:hover { background: #a4f1dc; }
+
+.menu__button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+kbd {
+    padding: .1rem .45rem;
+    border: 1px solid #435464;
+    border-radius: .35rem;
+    background: #111a23;
+    color: #e8edf4;
+    font: .85em ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* Tekstury elementów HTML: textures.js ustawia --texture dla elementów z data-texture.
+   Gdy tekstury nie ma, widać tło zastępcze z --fallback (definiowane przy każdym ekranie).
+   Ta reguła musi stać PO .menu, bo .menu resetuje tło skrótem "background". */
+[data-texture] {
+    background-image: var(--texture, none), var(--fallback, none);
+    background-size: var(--texture-size, cover), cover;
+    background-repeat: var(--texture-repeat, no-repeat), no-repeat;
+    background-position: center;
+}
+
+.menu__text { margin: 0 0 .5rem; max-width: 32rem; color: #cdd7e2; font-size: 1.1rem; text-align: center; }
+.menu__text:empty { display: none; }
+.menu__hint { margin: .25rem 0 0; color: #aab7c5; font-size: .85rem; }
+
+.menu__title--lose { color: #ff8a8a; }
+.menu__title--win { color: #8ff0c4; }
+
+/* Menu główne i ekrany końcowe mają własne, nieprzezroczyste tło (bez widocznej sceny gry). */
+.menu[data-screen="main"],
+.menu[data-screen="win"],
+.menu[data-screen="lose"] {
+    background-color: #0d1620;
+    backdrop-filter: none;
+}
+.menu[data-screen="main"] { --fallback: linear-gradient(160deg, #18304a 0%, #0d1620 55%, #15291f 100%); }
+.menu[data-screen="win"]  { --fallback: radial-gradient(circle at 50% 30%, #1f5a45, #0d1620 70%); }
+.menu[data-screen="lose"] { --fallback: radial-gradient(circle at 50% 30%, #5a1f2a, #0d1620 70%); }
+.menu[data-screen="pause"] { --g: clamp(1.5px, calc(min(100vw, 100dvh * 16 / 9) / 640), 3px); }
+body[data-menu-origin="pause"] .menu[data-screen="controls"] {
+    background: rgb(10 15 22 / .78);
+    backdrop-filter: blur(3px);
+}
+
+/* Okno rozbrajania: bomba z bliska. Po lewej płytka z zegarem, po prawej trzy laski dynamitu, a między nimi
+   trzy kable (czerwony, żółty, niebieski). Każdy kabel przechodzi przez jedną odpowiedź; po wybraniu odpowiedzi
+   main.js dodaje wierszowi klasę is-cut i kabel zostaje przecięty (iskra, dwie rozchylone końcówki).
+   Wszystkie grafiki to małe pixel arty z assets/bomb_ui_*.png (tools/make_bomb_art.py). --px mówi, ile pikseli
+   ekranu ma jeden piksel obrazka; rośnie z rozmiarem okna, żeby całość mieściła się na ekranie. */
+.bomb-panel {
+    --px: 2px;
+    --fallback: linear-gradient(180deg, #1d2833, #121920);
+    --ui: "../../assets/";
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: calc(4 * var(--px));
+    width: min(100%, 56rem);
+    padding: calc(9 * var(--px)) calc(6 * var(--px)) calc(5 * var(--px));
+    border: var(--px) solid #000;
+    box-shadow: inset 0 0 0 var(--px) #3a4e63, 0 1.5rem 4rem #0007;
+    image-rendering: pixelated;
+}
+@media (max-width: 560px) { .bomb-panel { --px: 1px; } }
+@media (min-width: 760px) and (min-height: 560px) { .bomb-panel { --px: 3px; width: min(100%, 60rem); } }
+@media (min-width: 1100px) and (min-height: 880px) { .bomb-panel { --px: 4px; width: min(100%, 72rem); } }
+
+/* Pasek ostrzegawczy u góry okna. */
+.bomb-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: calc(3 * var(--px));
+    background: repeating-linear-gradient(-45deg, #e8c04a 0 calc(3 * var(--px)), #15181d calc(3 * var(--px)) calc(6 * var(--px)));
+}
+
+.bomb-board {
+    display: grid;
+    grid-template-columns: calc(36 * var(--px)) calc(34 * var(--px)) minmax(0, 1fr) calc(24 * var(--px)) calc(32 * var(--px)) calc(40 * var(--px));
+    grid-template-rows: minmax(calc(36 * var(--px)), auto) repeat(3, 1fr);   /* trzy równe wiersze: kable zbiegają się symetrycznie */
+    row-gap: calc(var(--px));
+    width: 100%;
+    padding-bottom: calc(6 * var(--px));
+}
+
+/* Płytka: jedna rama na wszystkie wiersze. Ścieżki i ozdoby leżą na niej. */
+.bomb-board__pcb {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    margin-bottom: calc(-6 * var(--px));
+    border: calc(4 * var(--px)) solid #3a8e56;
+    border-image: url("../../assets/bomb_ui_pcb.png") 4 fill / calc(4 * var(--px)) stretch;
+}
+.bomb-board__pcb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../../assets/bomb_ui_traces.png") 0 0 / calc(16 * var(--px)) calc(16 * var(--px));
+    opacity: .3;
+    pointer-events: none;
+}
+
+/* Zegar na płytce: czas do końca poziomu (main.js wpisuje tu "MM:SS"). */
+.bomb-panel__timer {
+    position: absolute;
+    top: calc(1 * var(--px));
+    left: calc(1 * var(--px));
+    width: calc(26 * var(--px));
+    height: calc(12 * var(--px));
+    display: grid;
+    place-items: center;
+    margin: 0;
+    border: calc(4 * var(--px)) solid #1a0c0e;
+    border-image: url("../../assets/bomb_ui_display.png") 4 fill / calc(4 * var(--px)) stretch;
+    color: #ff5547;
+    font: 700 calc(6 * var(--px)) / 1 ui-monospace, Menlo, Consolas, monospace;
+    letter-spacing: .04em;
+    text-shadow: 0 0 calc(2 * var(--px)) #ff2a1c99;
+}
+.bomb-panel__timer:empty::before { content: "--:--"; opacity: .4; }
+
+.bomb-board__part { position: absolute; background-repeat: no-repeat; background-size: 100% 100%; }
+.bomb-board__part--chip { left: calc(2 * var(--px)); top: calc(17 * var(--px)); width: calc(14 * var(--px)); height: calc(8 * var(--px)); background-image: url("../../assets/bomb_ui_chip.png"); }
+.bomb-board__part--buzzer { left: calc(18 * var(--px)); top: calc(15 * var(--px)); width: calc(14 * var(--px)); height: calc(14 * var(--px)); background-image: url("../../assets/bomb_ui_buzzer.png"); }
+.bomb-board__part--coil { left: calc(3 * var(--px)); top: calc(27 * var(--px)); width: calc(14 * var(--px)); height: calc(14 * var(--px)); background-image: url("../../assets/bomb_ui_coil.png"); }
+
+/* Pytanie obok zegara. */
+.bomb-board__head {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: calc(2 * var(--px));
+    padding: 0 calc(3 * var(--px)) calc(4 * var(--px)) calc(8 * var(--px));
+}
+.bomb-panel__title { margin: 0; font-size: clamp(1.1rem, 2.6vw, 1.7rem); line-height: 1.25; text-shadow: 0 var(--px) 0 #000a; }
+.bomb-panel .menu__hint { margin-top: 0; text-align: center; }
+
+/* Jeden wiersz = jeden kabel z jedną odpowiedzią. display: contents, żeby elementy leżały w siatce planszy. */
+.bomb-board__row { display: contents; }
+.bomb-board__row[data-wire="red"] { --row: 2; }
+.bomb-board__row[data-wire="yellow"] { --row: 3; }
+.bomb-board__row[data-wire="blue"] { --row: 4; }
+.bomb-board__row > * { grid-row: var(--row); }
+.bomb-board__row[data-wire="red"] { --wire-color: #e03e3e; --wire-tile: url("../../assets/bomb_ui_wire_red.png"); --terminal: url("../../assets/bomb_ui_terminal_red.png"); --cut: url("../../assets/bomb_ui_cut_red.png"); }
+.bomb-board__row[data-wire="yellow"] { --wire-color: #f2c63e; --wire-tile: url("../../assets/bomb_ui_wire_yellow.png"); --terminal: url("../../assets/bomb_ui_terminal_yellow.png"); --cut: url("../../assets/bomb_ui_cut_yellow.png"); }
+.bomb-board__row[data-wire="blue"] { --wire-color: #4a86e8; --wire-tile: url("../../assets/bomb_ui_wire_blue.png"); --terminal: url("../../assets/bomb_ui_terminal_blue.png"); --cut: url("../../assets/bomb_ui_cut_blue.png"); }
+
+/* Terminal na krawędzi płytki: blok ze śrubą i osłonka kabla wystająca na zewnątrz. */
+.bomb-board__terminal {
+    position: relative;
+    z-index: 2;
+    grid-column: 1;
+    justify-self: end;
+    align-self: center;
+    width: calc(22 * var(--px));
+    height: calc(10 * var(--px));
+    margin-right: calc(-12 * var(--px));
+    background: var(--terminal) no-repeat 0 0 / 100% 100%;
+    pointer-events: none;
+}
+
+/* Kabel: powtarzany kafelek. Zaczyna się pod terminalem, a kończy przy plakietce z odpowiedzią. */
+.bomb-board__wire {
+    --gap: calc(6 * var(--px));
+    position: relative;
+    z-index: 1;
+    align-self: center;
+    height: calc(6 * var(--px));
+    background: var(--wire-tile) repeat-x 0 0 / calc(8 * var(--px)) calc(6 * var(--px));
+    pointer-events: none;
+}
+.bomb-board__wire--left { grid-column: 2; margin-left: calc(-1 * var(--px)); }
+.bomb-board__wire--right { grid-column: 4; }
+
+/* Plakietka z odpowiedzią wisi na kablu. Pasek z lewej ma kolor kabla. */
+.menu__button.bomb-panel__option {
+    position: relative;
+    z-index: 3;
+    grid-column: 3;
+    align-self: center;
+    width: 100%;
+    min-height: calc(18 * var(--px));
+    margin: calc(2 * var(--px)) 0;
+    padding: calc(2 * var(--px)) calc(3 * var(--px)) calc(2 * var(--px)) calc(6 * var(--px));
+    border: var(--px) solid #000;
+    border-radius: 0;
+    background: #243649;
+    box-shadow: inset 0 var(--px) 0 #425b78, inset 0 calc(-1 * var(--px)) 0 #141f2b, inset calc(3 * var(--px)) 0 0 0 var(--wire-color);
+    font-size: clamp(.95rem, 1.9vw, 1.15rem);
+    line-height: 1.3;
+    text-align: left;
+}
+.menu__button.bomb-panel__option:hover:not(:disabled) { background: #2d4560; }
+.menu__button.bomb-panel__option:focus-visible { outline: calc(var(--px)) solid #fff; outline-offset: calc(var(--px)); }
+
+/* Za odpowiedziami kable zbiegają się w jeden przewód (płótno z wirefunnel.js), który wchodzi w pęk dynamitu. */
+.bomb-board__merge { position: relative; grid-column: 5; grid-row: 2 / 5; }
+.bomb-board__merge canvas { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
+
+/* Pęk dynamitu: trzy laski z jedną taśmą i jedną spłonką, w którą wchodzi wspólny przewód. */
+.bomb-board__charge {
+    position: relative;
+    z-index: 1;
+    grid-column: 6;
+    grid-row: 2 / 5;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--px));
+    pointer-events: none;
+}
+.bomb-board__charge::before {   /* spłonka wbita w środkową laskę */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(-6 * var(--px));
+    z-index: 2;
+    width: calc(12 * var(--px));
+    height: calc(10 * var(--px));
+    margin-top: calc(-5 * var(--px));
+    background: url("../../assets/bomb_ui_cap.png") no-repeat 0 0 / 100% 100%;
+}
+.bomb-board__charge::after {    /* jedna taśma na wszystkich laskach */
+    content: "";
+    position: absolute;
+    top: calc(-2 * var(--px));
+    bottom: calc(-2 * var(--px));
+    left: calc(7 * var(--px));
+    width: calc(6 * var(--px));
+    z-index: 2;
+    background: url("../../assets/bomb_ui_strap.png") no-repeat 0 0 / 100% 100%;
+}
+.bomb-board__stick {
+    position: relative;
+    height: calc(16 * var(--px));
+    border: calc(4 * var(--px)) solid #bc4640;
+    border-image: url("../../assets/bomb_ui_stick.png") 4 fill / calc(4 * var(--px)) stretch;
+}
+.bomb-board__stick::after {    /* etykieta TNT */
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: calc(3 * var(--px));
+    width: calc(19 * var(--px));
+    height: calc(9 * var(--px));
+    margin-top: calc(-6.5 * var(--px));
+    background: url("../../assets/bomb_ui_tnt.png") no-repeat 0 0 / 100% 100%;
+}
+
+/* Wariant okna dla panelu na mapie (poziomy "panel" i "boss"): po lewej panel sterujący, po prawej nadajnik. */
+.bomb-board__transmitter { display: none; }
+.bomb-panel[data-kind="panel"] .bomb-board__stick,
+.bomb-panel[data-kind="panel"] .bomb-board__charge::before,
+.bomb-panel[data-kind="panel"] .bomb-board__charge::after { display: none; }
+.bomb-panel[data-kind="panel"] .bomb-board__transmitter {
+    display: block;
+    position: relative;
+    top: calc(-7 * var(--px));        /* wtyczka (3. wiersz od dołu obrazka) ma być na wysokości wspólnego przewodu */
+    width: calc(40 * var(--px));
+    height: calc(46 * var(--px));
+    background: url("../../assets/bomb_ui_transmitter.png") no-repeat 0 0 / 100% 100%;
+}
+.bomb-panel[data-kind="panel"] .bomb-board__pcb { border-image-source: url("../../assets/bomb_ui_panel_frame.png"); }
+.bomb-panel[data-kind="panel"] .bomb-board__pcb::before { opacity: 0; }
+.bomb-panel[data-kind="panel"] .bomb-board__part--chip { top: calc(16 * var(--px)); width: calc(17 * var(--px)); height: calc(13 * var(--px)); background-image: url("../../assets/bomb_ui_keypad.png"); }
+.bomb-panel[data-kind="panel"] .bomb-board__part--buzzer { left: calc(3 * var(--px)); top: calc(32 * var(--px)); width: calc(14 * var(--px)); height: calc(4 * var(--px)); background-image: url("../../assets/bomb_ui_leds.png"); }
+.bomb-panel[data-kind="panel"] .bomb-board__part--coil { left: calc(3 * var(--px)); top: calc(39 * var(--px)); width: calc(14 * var(--px)); height: calc(10 * var(--px)); background-image: url("../../assets/bomb_ui_grille.png"); }
+
+/* ----- Przecięty kabel ----- */
+.bomb-board__wire--left::before,
+.bomb-board__wire--right::before,
+.bomb-board__wire--left::after { display: none; }
+
+.is-cut .bomb-board__wire--left { clip-path: inset(-100px var(--gap) -100px -100px); }
+.is-cut .bomb-board__wire--right { clip-path: inset(-100px -100px -100px var(--gap)); }
+
+.is-cut .bomb-board__wire--left::before,
+.is-cut .bomb-board__wire--right::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: calc(14 * var(--px));
+    height: calc(10 * var(--px));
+    background: var(--cut) no-repeat 0 0 / 100% 100%;
+    animation: bomb-droop .35s steps(3) both;
+}
+.is-cut .bomb-board__wire--left::before { right: var(--gap); }
+.is-cut .bomb-board__wire--right::before { left: var(--gap); scale: -1 1; } /* odbicie lustrzane: końcówka patrzy w lewo */
+
+/* Iskra w miejscu cięcia (trzy klatki z bomb_ui_spark.png, potem znika). */
+.is-cut .bomb-board__wire--left::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: calc(-4.5 * var(--px));
+    right: calc(var(--gap) - 7.5 * var(--px));
+    width: calc(15 * var(--px));
+    height: calc(15 * var(--px));
+    background: url("../../assets/bomb_ui_spark.png") no-repeat 0 0 / calc(45 * var(--px)) calc(15 * var(--px));
+    animation: bomb-spark .45s steps(1) both;
+}
+
+/* Wiersze przecięte wcześniej (po ponownym otwarciu okna) nie powtarzają iskry ani opadania końcówek. */
+.is-cut.is-old .bomb-board__wire--left::after { display: none; }
+.is-cut.is-old .bomb-board__wire--left::before,
+.is-cut.is-old .bomb-board__wire--right::before { animation: none; }
+
+@keyframes bomb-spark {
+    0% { background-position: 0 0; opacity: 1; }
+    25% { background-position: calc(-15 * var(--px)) 0; }
+    60% { background-position: calc(-30 * var(--px)) 0; }
+    100% { background-position: calc(-30 * var(--px)) 0; opacity: 0; }
+}
+@keyframes bomb-droop {
+    from { transform: translateY(calc(-1 * var(--px))); }
+    to { transform: translateY(0); }
+}
+
+/* Wyłączona (już przecięta) odpowiedź: ciemna, przekreślona. Poprawna odpowiedź po przecięciu na zielono. */
+.menu__button.bomb-panel__option:disabled,
+.menu__button.bomb-panel__option:disabled:hover {
+    border-color: #000;
+    background: #231a1e;
+    color: #8c7378;
+}
+.is-correct .menu__button.bomb-panel__option:disabled,
+.is-correct .menu__button.bomb-panel__option:disabled:hover {
+    background: #1f5a45;
+    color: #d8ffe9;
+    text-decoration: none;
+}
+.bomb-board.is-locked { pointer-events: none; }
+
+/* Menu główne: lista poziomów (karty tworzy main.js). */
+/* Gdyby lista poziomów nie mieściła się w bardzo małym oknie, menu można przewijać kółkiem myszy,
+   ale bez widocznego paska przewijania. */
+.menu[data-screen="levels"], .menu[data-screen="controls"] { overflow-y: auto; justify-content: safe center; scrollbar-width: none; }
+.menu[data-screen="levels"]::-webkit-scrollbar, .menu[data-screen="controls"]::-webkit-scrollbar { display: none; }
+
+.level-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: .9rem;
+    width: min(100%, 48rem);
+}
+
+.menu__button.level-card {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    width: 100%;
+    padding: .65rem .65rem .85rem;
+    text-align: left;
+}
+
+/* Miniatura ma własny element, bo .menu__button:hover resetuje tło przycisku skrótem "background". */
+.level-card__thumb {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: .4rem;
+    border: 1px solid #435464;
+    border-radius: .4rem;
+}
+.level-card:hover .level-card__thumb,
+.level-card:focus-visible .level-card__thumb { border-color: #a4f1dc; }
+
+.level-card__name { font-size: 1.05rem; }
+.level-card__subtitle { color: #aab7c5; font-size: .85rem; font-weight: 400; }
+.level-card__subtitle:empty { display: none; }
+.level-card__info { color: #ffd27a; font-size: .8rem; font-weight: 600; }
+.level-card__status { color: #8ff0c4; font-size: .78rem; font-weight: 600; }
+.level-card__status:empty { display: none; }
+
+/* Blokady poziomów: kolejny poziom odblokowuje ukończenie poprzedniego (progress.js; tryb debug odblokowuje wszystko). */
+.level-card-wrap { position: relative; display: flex; }
+.menu__button.level-card:disabled,
+.menu__button.level-card:disabled:hover {
+    border-color: #435464;
+    background: #1d2a38;
+    color: #8c98a6;
+    text-decoration: none;
+    opacity: .6;
+}
+.level-card:disabled .level-card__thumb { filter: grayscale(1) brightness(.55); }
+.level-card:disabled .level-card__status { color: #ffb86b; }
+.level-card.is-complete { border-color: #3e7f6f; }
+
+/* Przycisk odtwarzający fabułę ukończonego poziomu, w rogu karty. */
+.level-card__replay {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: .25rem .6rem;
+    border: 1px solid rgb(255 255 255 / .35);
+    border-radius: 999px;
+    background: rgb(10 15 22 / .8);
+    color: #fff;
+    font: inherit;
+    font-size: .75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.level-card__replay[hidden] { display: none; }
+.level-card__replay:hover { background: #79d7c4; color: #10201f; }
+.level-card__replay:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+/* Mały przycisk-link ("Resetuj postęp"). */
+.menu__link {
+    border: 0;
+    background: none;
+    color: #8c98a6;
+    font: inherit;
+    font-size: .8rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.menu__link:hover { color: #fff; }
+
+/* Kursor jest ukryty tylko podczas samej gry (w menu i pauzie jest widoczny). */
+body.cursor-hidden .game { cursor: none; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Zła odpowiedź: komunikat o karze czasowej i wyłączone (już wybrane) odpowiedzi. */
+.bomb-panel__penalty { margin: 0; color: #ff8a8a; font-weight: 700; }
+.bomb-panel__penalty[hidden] { display: none; }
+.menu__button:disabled,
+.menu__button:disabled:hover {
+    border-color: #3a2a2e;
+    background: #231a1e;
+    color: #8c7378;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+/* ---------- Edytor poziomów (editor.js) ---------- */
+.editor { position: absolute; z-index: 5; inset: 0; pointer-events: none; }
+.editor[hidden] { display: none; }
+
+.editor__panel {
+    position: absolute; top: 0; bottom: 0; left: 0;
+    width: 17.5rem; overflow-y: auto; padding: .75rem;
+    border-right: 1px solid #2a3948; background: rgb(14 21 29 / .96);
+    color: #cdd7e2; font-size: .8rem; pointer-events: auto;
+}
+.editor__head { display: grid; gap: .5rem; margin-bottom: .5rem; }
+.editor__title { margin: 0; font-size: 1rem; }
+.editor__heading { margin: 1rem 0 .4rem; color: #79d7c4; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+.editor__group { margin: .6rem 0 .25rem; color: #8fa1b3; font-size: .7rem; font-weight: 600; }
+.editor__section { display: grid; gap: .4rem; }
+.editor__tools { gap: .25rem; }
+.editor__row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.editor__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+.editor__hint { margin: 0; color: #8fa1b3; font-size: .72rem; line-height: 1.35; }
+.editor details > summary { cursor: pointer; margin: .5rem 0; color: #79d7c4; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+
+.editor__button, .editor__select, .editor__field input, .editor__field select {
+    border: 1px solid #3b4c5d; border-radius: .35rem; background: #1b2937; color: inherit; font: inherit;
+}
+.editor__button { padding: .35rem .6rem; cursor: pointer; }
+.editor__button:hover { background: #26384b; }
+.editor__button--primary { border-color: #a4f1dc; background: #79d7c4; color: #10201f; font-weight: 700; }
+.editor__button--primary:hover { background: #a4f1dc; }
+.editor__button--danger { border-color: #7a3a41; background: #3a1d22; }
+.editor__tool { width: 100%; text-align: left; }
+.editor__tool.is-active { border-color: #79d7c4; background: #214a45; font-weight: 700; }
+.editor__select { padding: .3rem; max-width: 100%; }
+.editor__field { display: grid; gap: .15rem; }
+.editor__field--wide { grid-column: 1 / -1; }
+.editor__field span { color: #8fa1b3; font-size: .68rem; }
+.editor__field input, .editor__field select { width: 100%; min-width: 0; padding: .3rem .4rem; }
+.editor__check { display: flex; align-items: center; gap: .4rem; }
+.editor__inline { display: inline-flex; align-items: center; gap: .4rem; }
+.editor__zoom { min-width: 2rem; text-align: center; }
+.editor__preview { max-width: 100%; max-height: 8rem; image-rendering: pixelated; border: 1px solid #3b4c5d; background: #0e151d; }
+
+/* Pasek stanu u dołu mapy: nie przechwytuje myszy, żeby kamera przy dolnej krawędzi działała. */
+.editor__status {
+    position: absolute; left: 18.25rem; right: .75rem; bottom: .75rem; padding: .35rem .6rem;
+    border-radius: .4rem; background: rgb(10 15 22 / .78); color: #cdd7e2; font-size: .75rem; pointer-events: none;
+}
+.editor__status.is-flash { background: rgb(33 74 69 / .92); color: #fff; }
+.editor__status.is-area { background: rgb(20 70 100 / .92); color: #fff; font-weight: 700; }
+
+/* ---------- Fabuła (storyplayer.js): tytuł, czat grupowy, scena z policją, zakończenie ---------- */
+.menu[data-screen="story"] { padding: 0; background: #05070b; backdrop-filter: none; }
+.story-root { position: absolute; inset: 0; overflow: hidden; outline: none; background: #05070b; color: #e8edf4; }
+
+/* Każda scena to osobna warstwa, przełączana płynnie (czas: --fade ustawiany w JS dla tytułu). */
+.story-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .8s ease, visibility 0s linear .8s;
+}
+.story-layer.is-visible { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity .8s ease, visibility 0s; }
+
+.story-skip {
+    position: absolute;
+    z-index: 3;
+    top: .9rem;
+    right: .9rem;
+    padding: .4rem .8rem;
+    border: 1px solid rgb(255 255 255 / .25);
+    border-radius: .5rem;
+    background: rgb(10 15 22 / .6);
+    color: #aab7c5;
+    font: inherit;
+    font-size: .8rem;
+    cursor: pointer;
+}
+.story-skip:hover { color: #fff; border-color: #fff; }
+.story-root[data-stage="reading"] .story-skip,
+.story-root[data-stage="end"] .story-skip,
+.story-root[data-stage="idle"] .story-skip { display: none; }
+
+/* Tytuł: pojawia się, stoi, potem dramatycznie zanika (rozjeżdżają się litery, rozmycie). */
+.story-title { text-align: center; opacity: 0; transform: scale(.97); filter: blur(6px); }
+.story-title.is-in {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+    transition: opacity var(--fade, 2s) ease, transform calc(var(--fade, 2s) * 2) ease-out, filter var(--fade, 2s) ease;
+}
+.story-title.is-out {
+    opacity: 0;
+    transform: scale(1.12);
+    filter: blur(10px);
+    transition: opacity calc(var(--fade, 2s) * 1.6) ease-in, transform calc(var(--fade, 2s) * 1.8) ease-in, filter calc(var(--fade, 2s) * 1.6) ease-in;
+}
+.story-title__text { margin: 0; font-size: clamp(2.2rem, 7vw, 4.6rem); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; text-shadow: 0 0 28px rgb(255 90 90 / .45); }
+.story-title.is-out .story-title__text { letter-spacing: .5em; transition: letter-spacing calc(var(--fade, 2s) * 1.8) ease-in; }
+.story-title__sub { margin: .8rem 0 0; color: #aab7c5; font-size: clamp(.9rem, 2vw, 1.2rem); letter-spacing: .3em; text-transform: uppercase; }
+.story-title__sub:empty { display: none; }
+
+/* Czat: okno jak w komunikatorze, wiadomości pojawiają się od dołu. */
+.story-layer--chat { gap: .8rem; }
+/* Temat rozdziału: duży napis nad oknem grupy. Pojawia się pierwszy (jak tytuł), okno grupy dopiero po nim. */
+.story-topic {
+    margin: 0;
+    font-size: clamp(1.5rem, 4.4vw, 2.9rem);
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-align: center;
+    text-shadow: 0 0 24px rgb(255 90 90 / .4);
+    text-transform: uppercase;
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(.97);
+}
+.story-topic.is-in {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    transition: opacity var(--fade, 1.6s) ease, filter var(--fade, 1.6s) ease, transform calc(var(--fade, 1.6s) * 2) ease-out;
+}
+.story-topic:empty { display: none; }
+.chat-slot {
+    display: flex;
+    width: min(36rem, 100%);
+    height: clamp(14rem, calc(100% - 9.5rem), 42rem);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .9s ease, transform .9s ease;
+}
+.chat-slot.is-in { opacity: 1; transform: none; }
+.chat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #2b3a4b;
+    border-radius: 1rem;
+    background: #0e1520;
+    box-shadow: 0 1rem 3rem rgb(0 0 0 / .55);
+    font-size: clamp(.85rem, 1.6vw, 1rem);
+}
+.chat__header { display: flex; align-items: center; gap: .7rem; padding: .7rem .9rem; border-bottom: 1px solid #223142; background: #141f2d; }
+.chat__info { display: flex; flex: 1; flex-direction: column; min-width: 0; line-height: 1.25; }
+.chat__name { overflow: hidden; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+.chat__status { color: #8c98a6; font-size: .78em; }
+.chat__avatar {
+    display: inline-grid;
+    flex: none;
+    place-items: center;
+    width: 1.9em;
+    height: 1.9em;
+    border-radius: 50%;
+    background: #79d7c4;
+    color: #0c1218;
+    font-size: .9em;
+    font-weight: 800;
+}
+.chat__avatar--group { width: 2.4em; height: 2.4em; background: linear-gradient(135deg, #3b6ea5, #6a4aa0); color: #fff; }
+
+.chat__list { display: flex; flex: 1; flex-direction: column; gap: .3rem; padding: .8rem; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #2b3a4b transparent; }
+.chat__list > :first-child { margin-top: auto; }
+
+.chat-msg { display: flex; align-items: flex-end; gap: .45rem; max-width: 86%; animation: chat-pop .28s ease-out; }
+.chat-msg.is-follow { margin-top: -.05rem; }
+.chat-msg.is-follow .chat__avatar { visibility: hidden; }
+.chat-msg.is-me { align-self: flex-end; flex-direction: row-reverse; }
+.chat-msg__bubble { display: flex; flex-direction: column; gap: .1rem; padding: .45rem .7rem .35rem; border-radius: .9rem .9rem .9rem .25rem; background: #1b2738; line-height: 1.35; }
+.chat-msg.is-me .chat-msg__bubble { border-radius: .9rem .9rem .25rem .9rem; background: #1f6b61; }
+.chat-msg__author { font-size: .78em; font-weight: 800; }
+.chat-msg__text { overflow-wrap: anywhere; }
+.chat-msg__time { align-self: flex-end; color: rgb(255 255 255 / .45); font-size: .66em; }
+.chat-sys { align-self: center; max-width: 90%; margin: .35rem 0; padding: .2rem .75rem; border-radius: 999px; background: #17212d; color: #98a6b5; font-size: .78em; text-align: center; animation: chat-pop .28s ease-out; }
+.chat-msg.is-instant, .chat-sys.is-instant { animation: none; }
+@keyframes chat-pop { from { opacity: 0; transform: translateY(10px) scale(.97); } }
+
+.chat__typing { height: 1.5rem; padding: 0 1rem; color: #8c98a6; font-size: .78em; visibility: hidden; }
+.chat__typing.is-on { visibility: visible; }
+.chat__dots { display: inline-flex; gap: .2rem; margin-left: .35rem; vertical-align: middle; }
+.chat__dots i { width: .32rem; height: .32rem; border-radius: 50%; background: #8c98a6; animation: chat-dot 1s infinite ease-in-out; }
+.chat__dots i:nth-child(2) { animation-delay: .15s; }
+.chat__dots i:nth-child(3) { animation-delay: .3s; }
+@keyframes chat-dot { 0%, 60%, 100% { opacity: .25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+
+.chat__composer { display: flex; align-items: center; gap: .6rem; margin: 0 .8rem .8rem; padding: .55rem .9rem; border-radius: 999px; background: #17212d; color: #66778a; font-size: .9em; }
+.chat__input { flex: 1; }
+.chat__send { color: #3e5166; }
+
+/* "Grupa usunięta": czat ciemnieje, na środku wielki napis. */
+.chat__banner { position: absolute; inset: 0; display: grid; place-items: center; background: rgb(5 7 11 / .78); color: #ff8a8a; font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: 0; pointer-events: none; transition: opacity .9s ease; }
+.chat.is-deleted .chat__banner { opacity: 1; }
+.chat.is-deleted .chat__status { color: #ff8a8a; }
+
+.story-next { width: min(100%, 14rem); }
+.story-next[hidden] { display: none; }
+
+/* Scena z policją: obraz na całą szerokość (pixel art, ostre piksele) i podpis. */
+.story-layer--police { gap: 0; padding: 0; background: #000; }
+.story-police__canvas,
+.story-police__image { width: min(100%, calc((100vh - 10.5rem) * 16 / 9)); aspect-ratio: 16 / 9; image-rendering: pixelated; background: #000 center / cover no-repeat; }
+.story-police__canvas[hidden],
+.story-police__image[hidden] { display: none; }
+.story-police__caption { min-height: 6.5rem; max-width: 46rem; margin: 0; padding: .8rem 1.2rem 0; color: #dbe4ee; font-size: clamp(.9rem, 1.5vw, 1.1rem); line-height: 1.5; text-align: center; opacity: 0; transition: opacity 1.2s ease; }
+.story-police__caption.is-in { opacity: 1; }
+
+/* Zakończenie: "Koniec" na górze, morał na środku, przycisk na dole. */
+.story-layer--end { justify-content: space-between; padding: clamp(1rem, 4vh, 2.5rem) 1.5rem; }
+.story-end__title { margin: 0; font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing: .3em; text-indent: .3em; text-transform: uppercase; }
+.story-end__text { min-height: 0; max-width: 46rem; margin: 0; color: #dbe4ee; font-size: clamp(.9rem, 1.6vw, 1.1rem); line-height: 1.55; text-align: center; white-space: pre-line; overflow-y: auto; }
+.story-end__button { width: min(100%, 17rem); }
+/* Panel rozbrajania nie zatrzymuje gry: tło jest lżejsze i bez rozmycia, żeby było widać, co dzieje się na mapie. */
+.menu[data-screen="bomb"] { background: rgb(10 15 22 / .35); backdrop-filter: none; }
+
+/* ============================================================================
+   MENU GŁÓWNE (ekran tytułowy), wybór poziomu i sterowanie.
+   Grafiki: assets/menu_*.png, generuje je tools/make_menu_art.py.
+   Czcionka: Press Start 2P (SIL OFL, assets/fonts/OFL.txt).
+   --g = rozmiar jednego piksela gry na ekranie; ekran tytułowy skaluje się jak obraz gry (640 x 360, 16:9).
+   ============================================================================ */
+@font-face {
+    font-family: "Press Start 2P";
+    src: url("../../assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+.menu.menu--title {
+    --g: calc(min(100vw, 100dvh * 16 / 9) / 640);
+    padding: 0;
+    gap: 0;
+    background: #070a1a;
+    overflow: hidden;
+}
+
+.title-stage {
+    position: relative;
+    flex: none;
+    width: calc(640 * var(--g));
+    height: calc(360 * var(--g));
+    image-rendering: pixelated;
+    font-family: "Press Start 2P", ui-monospace, Consolas, monospace;
+}
+
+/* Gracz na dachu: ten sam arkusz co w grze (32 x 32, wiersz idle: 2 klatki, 3 fps), w miejscu z menu_background.png. */
+.title-player {
+    position: absolute;
+    left: calc(134 * var(--g));
+    top: calc(262 * var(--g));
+    width: calc(32 * var(--g));
+    height: calc(32 * var(--g));
+    background: url("../../assets/player_sheet.png") 0 0 / calc(128 * var(--g)) calc(288 * var(--g)) no-repeat;
+    animation: title-idle .67s steps(2, jump-none) infinite;
+}
+@keyframes title-idle { from { background-position-x: 0; } to { background-position-x: calc(-64 * var(--g)); } }
+
+.title-logo {
+    position: absolute;
+    left: calc(120 * var(--g));
+    top: calc(12 * var(--g));
+    margin: 0;
+    width: calc(400 * var(--g));
+    height: calc(132 * var(--g));
+    animation: title-float 3.2s steps(4, jump-none) infinite alternate;
+}
+.title-logo img { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+@keyframes title-float { from { transform: translateY(0); } to { transform: translateY(calc(2 * var(--g))); } }
+
+/* Iskra na końcu lontu: 3 klatki w menu_spark.png (11 x 11), środek w punkcie (287, 9) logo. */
+.title-logo__spark {
+    position: absolute;
+    left: calc(282 * var(--g));
+    top: calc(4 * var(--g));
+    width: calc(11 * var(--g));
+    height: calc(11 * var(--g));
+    background: url("../../assets/menu_spark.png") 0 0 / calc(33 * var(--g)) calc(11 * var(--g)) no-repeat;
+    animation: title-spark .36s steps(3, jump-none) infinite;
+}
+@keyframes title-spark { from { background-position-x: 0; } to { background-position-x: calc(-22 * var(--g)); } }
+
+.title-subtitle {
+    position: absolute;
+    left: 0; right: 0;
+    top: calc(148 * var(--g));
+    margin: 0;
+    text-align: center;
+    color: #9fb4e8;
+    font-size: max(8px, calc(6 * var(--g)));
+    letter-spacing: .18em;
+    text-shadow: 0 var(--g) 0 #05060f;
+}
+
+.title-buttons {
+    position: absolute;
+    left: calc(245 * var(--g));
+    top: calc(172 * var(--g));
+    display: flex;
+    flex-direction: column;
+    gap: calc(5 * var(--g));
+    width: calc(150 * var(--g));
+}
+
+.title-footer {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: calc(7 * var(--g));
+    margin: 0;
+    text-align: center;
+    color: #6f7fae;
+    font-size: max(7px, calc(4.5 * var(--g)));
+    text-shadow: 0 var(--g) 0 #05060f;
+}
+
+/* Przyciski w stylu gry: grafika 9-slice zamiast ramki CSS. */
+.title-buttons .menu__button,
+.menu--panel > .menu__button,
+.menu[data-screen="pause"] > .menu__button {
+    --g: inherit;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(22 * var(--g));
+    padding: 0;
+    border: calc(6 * var(--g)) solid transparent;
+    border-image: url("../../assets/menu_btn.png") 6 fill / calc(6 * var(--g)) stretch;
+    border-radius: 0;
+    background: none;
+    color: #cfe0ff;
+    font-family: "Press Start 2P", ui-monospace, Consolas, monospace;
+    font-size: max(9px, calc(7 * var(--g)));
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 0 var(--g) 0 #05060f;
+    image-rendering: pixelated;
+    cursor: pointer;
+}
+.title-buttons .menu__button:hover,
+.title-buttons .menu__button:focus-visible,
+.menu--panel > .menu__button:hover,
+.menu--panel > .menu__button:focus-visible,
+.menu[data-screen="pause"] > .menu__button:hover,
+.menu[data-screen="pause"] > .menu__button:focus-visible {
+    background: none;
+    border-image-source: url("../../assets/menu_btn_hover.png");
+    color: #fff;
+    outline: none;
+}
+.title-buttons .menu__button--primary {
+    border-image-source: url("../../assets/menu_btn_primary.png");
+    color: #fff7d6;
+}
+.menu[data-screen="pause"] > .menu__button--primary {
+    border-image-source: url("../../assets/menu_btn_primary.png");
+    color: #fff7d6;
+}
+.title-buttons .menu__button--primary:hover,
+.title-buttons .menu__button--primary:focus-visible { border-image-source: url("../../assets/menu_btn_primary_hover.png"); }
+.menu[data-screen="pause"] > .menu__button--primary:hover,
+.menu[data-screen="pause"] > .menu__button--primary:focus-visible { border-image-source: url("../../assets/menu_btn_primary_hover.png"); }
+.menu[data-screen="pause"] > .menu__button { width: calc(150 * var(--g)); flex: none; }
+
+/* Strzałka przy zaznaczonym przycisku. */
+.title-buttons .menu__button::before {
+    content: "";
+    position: absolute;
+    left: calc(-3 * var(--g));
+    top: 50%;
+    width: calc(7 * var(--g));
+    height: calc(9 * var(--g));
+    margin-top: calc(-4.5 * var(--g));
+    background: url("../../assets/menu_arrow.png") 0 0 / 100% 100%;
+    opacity: 0;
+}
+.menu[data-screen="pause"] > .menu__button::before {
+    content: "";
+    position: absolute;
+    left: calc(-3 * var(--g));
+    top: 50%;
+    width: calc(7 * var(--g));
+    height: calc(9 * var(--g));
+    margin-top: calc(-4.5 * var(--g));
+    background: url("../../assets/menu_arrow.png") 0 0 / 100% 100%;
+    opacity: 0;
+}
+.title-buttons .menu__button:hover::before,
+.title-buttons .menu__button:focus-visible::before { opacity: 1; animation: title-arrow .5s steps(2, jump-none) infinite alternate; }
+.menu[data-screen="pause"] > .menu__button:hover::before,
+.menu[data-screen="pause"] > .menu__button:focus-visible::before { opacity: 1; animation: title-arrow .5s steps(2, jump-none) infinite alternate; }
+@keyframes title-arrow { from { transform: translateX(0); } to { transform: translateX(calc(2 * var(--g))); } }
+
+/* Wybór poziomu i sterowanie: ciemne, rozmyte tło z ekranu tytułowego i panele z grafiką gry. */
+.menu.menu--panel {
+    --g: clamp(1.5px, calc(min(100vw, 100dvh * 16 / 9) / 640), 3px);
+    gap: calc(5 * var(--g));
+    background:
+        linear-gradient(rgb(7 10 26 / .86), rgb(7 10 26 / .93)),
+        url("../../assets/menu_background.png") center / cover no-repeat;
+    backdrop-filter: none;
+    image-rendering: pixelated;
+}
+.menu--panel .menu__title {
+    margin: 0 0 calc(6 * var(--g));
+    color: #ffd24a;
+    font-family: "Press Start 2P", ui-monospace, Consolas, monospace;
+    font-size: clamp(1rem, calc(11 * var(--g)), 1.8rem);
+    font-weight: 400;
+    text-shadow: calc(var(--g) * 1.5) calc(var(--g) * 1.5) 0 #8a2a14, 0 0 0 #05060f;
+}
+.menu--panel > .menu__button { width: calc(110 * var(--g)); flex: none; }
+.menu--panel .menu__link { font-family: "Press Start 2P", ui-monospace, Consolas, monospace; font-size: .6rem; }
+
+/* Karty poziomów jako panele z grafiką gry. */
+.menu--panel .menu__button.level-card {
+    height: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: calc(2 * var(--g));
+    border: calc(8 * var(--g)) solid transparent;
+    border-image: url("../../assets/menu_panel.png") 8 fill / calc(8 * var(--g)) stretch;
+    background: none;
+    text-transform: none;
+    text-shadow: none;
+}
+.menu--panel .menu__button.level-card::before { display: none; }
+.menu--panel .menu__button.level-card:hover,
+.menu--panel .menu__button.level-card:focus-visible { background: none; filter: brightness(1.3) saturate(1.2); }
+.menu--panel .menu__button.level-card:disabled,
+.menu--panel .menu__button.level-card:disabled:hover { background: none; border-color: transparent; filter: none; }
+.menu--panel .level-card__thumb { border: calc(var(--g)) solid #05060f; border-radius: 0; image-rendering: pixelated; }
+.menu--panel .level-card__name { font-family: "Press Start 2P", ui-monospace, Consolas, monospace; font-size: .62rem; line-height: 1.5; color: #ffd24a; }
+
+/* Sterowanie. */
+.controls-list {
+    display: grid;
+    gap: .35rem;
+    width: min(100%, 36rem);
+    margin: 0 0 calc(4 * var(--g));
+    padding: calc(8 * var(--g)) calc(10 * var(--g));
+    border: calc(8 * var(--g)) solid transparent;
+    border-image: url("../../assets/menu_panel.png") 8 fill / calc(8 * var(--g)) stretch;
+    list-style: none;
+    color: #cdd7e2;
+    font-size: .85rem;
+}
+.controls-list li { display: flex; justify-content: space-between; gap: 1.5rem; }
+.controls-list li span:last-child { color: #aab7c5; text-align: right; }
+
+/* Na ekranach menu rogowa ściąga ze sterowaniem jest zbędna (jest przycisk "Sterowanie"). */
+@media (prefers-reduced-motion: reduce) {
+    .title-logo, .title-buttons .menu__button::before { animation: none !important; }
+}

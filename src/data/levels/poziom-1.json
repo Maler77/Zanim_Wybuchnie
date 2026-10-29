@@ -1,0 +1,331 @@
+{
+ "name": "Poziom 1",
+ "subtitle": "Samouczek",
+ "thumbnail": "level1Thumbnail",
+ "questionCategory": "easy",
+ "background": [
+  "cityDusk"
+ ],
+ "timeLimit": 120,
+ "width": 3900,
+ "height": 480,
+ "hp": 5,
+ "spawn": {
+  "x": 64,
+  "y": 440
+ },
+ "platforms": [
+  {
+   "x": 0,
+   "y": 440,
+   "w": 3900,
+   "h": 40,
+   "texture": "assets/l1_sidewalk.png",
+   "textureMode": "tile"
+  },
+  {
+   "x": 300,
+   "y": 408,
+   "w": 32,
+   "h": 32,
+   "texture": "assets/l1_crate.png"
+  },
+  {
+   "x": 392,
+   "y": 400,
+   "w": 64,
+   "h": 40,
+   "texture": "assets/l1_dumpster.png"
+  },
+  {
+   "x": 1040,
+   "y": 312,
+   "w": 200,
+   "h": 128,
+   "texture": "assets/l1_shop.png"
+  },
+  {
+   "x": 1540,
+   "y": 312,
+   "w": 200,
+   "h": 128,
+   "texture": "assets/l1_block.png"
+  },
+  {
+   "x": 1323,
+   "y": 140,
+   "w": 100,
+   "h": 300,
+   "texture": "assets/lampa wyłączona.png",
+   "solid": false
+  },
+  {
+   "x": 1373,
+   "y": 158,
+   "w": 24,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent",
+   "solid": false,
+   "grappleable": true
+  },
+  {
+   "x": 1930,
+   "y": 312,
+   "w": 200,
+   "h": 128,
+   "texture": "assets/l1_office.png"
+  },
+  {
+   "x": 2330,
+   "y": 176,
+   "w": 220,
+   "h": 264,
+   "texture": "assets/l1_arch.png",
+   "solid": false
+  },
+  {
+   "x": 2330,
+   "y": 176,
+   "w": 220,
+   "h": 200,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 2646,
+   "y": 232,
+   "w": 200,
+   "h": 208,
+   "texture": "assets/l1_tower.png"
+  },
+  {
+   "x": 2846,
+   "y": 256,
+   "w": 56,
+   "h": 200,
+   "texture": "assets/l1_fire_escape.png",
+   "solid": false
+  },
+  {
+   "x": 2846,
+   "y": 296,
+   "w": 56,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 2846,
+   "y": 360,
+   "w": 56,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 2846,
+   "y": 424,
+   "w": 56,
+   "h": 6,
+   "texture": "platform",
+   "color": "transparent",
+   "oneWay": true
+  },
+  {
+   "x": 3380,
+   "y": 400,
+   "w": 112,
+   "h": 40,
+   "texture": "assets/l1_car.png",
+   "solid": false
+  },
+  {
+   "x": 3380,
+   "y": 416,
+   "w": 112,
+   "h": 24,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 3404,
+   "y": 402,
+   "w": 60,
+   "h": 14,
+   "texture": "platform",
+   "color": "transparent"
+  },
+  {
+   "x": 3700,
+   "y": 296,
+   "w": 200,
+   "h": 144,
+   "texture": "assets/l1_garage.png",
+   "solid": false
+  }
+ ],
+ "bombs": [
+  {
+   "x": 640,
+   "y": 440
+  }
+ ],
+ "enemies": [
+  {
+   "type": "weak",
+   "id": "weak-1",
+   "x": 3160,
+   "y": 440,
+   "direction": -1,
+   "speed": 48,
+   "area": {
+    "x1": 3040,
+    "y1": 300,
+    "x2": 3300,
+    "y2": 440
+   }
+  },
+  {
+   "type": "strong",
+   "id": "strong-1",
+   "x": 3620,
+   "y": 440,
+   "direction": -1,
+   "speed": 36,
+   "area": {
+    "x1": 3540,
+    "y1": 300,
+    "x2": 3700,
+    "y2": 440
+   }
+  }
+ ],
+ "checkpoints": [
+  {
+   "x": 1100,
+   "y": 312
+  },
+  {
+   "x": 1600,
+   "y": 312
+  },
+  {
+   "x": 2250,
+   "y": 440
+  },
+  {
+   "x": 2720,
+   "y": 232
+  },
+  {
+   "x": 2960,
+   "y": 440
+  },
+  {
+   "x": 3320,
+   "y": 440
+  }
+ ],
+ "hints": [
+  {
+   "x": 0,
+   "w": 270,
+   "text": "Rozbrój bombę i dojdź do wyjścia po prawej\n[A] [D] lub [←] [→] – chodzenie"
+  },
+  {
+   "x": 270,
+   "w": 290,
+   "text": "[Spacja] (albo [W], [↑]) – skok\nPrzeskocz skrzynię i kontener"
+  },
+  {
+   "x": 560,
+   "w": 300,
+   "when": "armed",
+   "text": "Podejdź do bomby i naciśnij [E]\nZła odpowiedź kosztuje 20 s"
+  },
+  {
+   "on": "allDefused",
+   "duration": 8,
+   "text": "Bomba rozbrojona – czas stanął!\nMożesz iść dalej bez pośpiechu"
+  },
+  {
+   "x": 860,
+   "w": 170,
+   "text": "Skocznia wyrzuca wysoko\nWejdź na nią i wyląduj na dachu"
+  },
+  {
+   "x": 1150,
+   "w": 100,
+    "text": "Kolce! Skocz i w locie naciśnij [Q] – hak\nHuśtaj się [A] [D], puść [Spacja] nad dachem"
+  },
+  {
+   "x": 1540,
+   "w": 96,
+   "text": "Dash jest pod [Shift]\nPrzyda się na następnej przerwie"
+  },
+  {
+   "x": 1640,
+   "w": 100,
+   "text": "Za daleko na zwykły skok\nSkocz i w locie naciśnij [Shift] – dash"
+  },
+  {
+   "x": 2250,
+   "w": 300,
+   "text": "Szyb między budynkami: wskocz do niego\n[Spacja] przy ścianie w powietrzu – wall jump"
+  },
+  {
+   "x": 2550,
+   "w": 96,
+   "y": 150,
+   "text": "Odbijaj się naprzemiennie od lewej i prawej ściany\nOd tej samej ściany odbijesz się dopiero po chwili"
+  },
+  {
+   "x": 2960,
+   "w": 200,
+   "text": "Przeciwnik atakuje tylko od przodu\nPodejdź i naciśnij [E], żeby go zakuć"
+  },
+  {
+   "x": 3300,
+   "w": 240,
+   "text": "Duży przeciwnik: [E] działa tylko od tyłu\nWskocz na auto i przeskocz nad nim; [F] – dym"
+  },
+  {
+   "x": 3700,
+   "w": 200,
+   "when": "armed",
+   "text": "Wyjście jest zamknięte\nWróć i rozbrój bombę"
+  },
+  {
+   "x": 3700,
+   "w": 200,
+   "when": "defused",
+   "text": "Wyjście otwarte – wejdź do drzwi!"
+  }
+ ],
+ "spikes": [
+  {
+   "x": 1240,
+   "y": 432,
+   "w": 300,
+   "h": 8
+  },
+  {
+   "x": 1740,
+   "y": 432,
+   "w": 190,
+   "h": 8
+  }
+ ],
+ "jumpPads": [
+  {
+   "x": 968,
+   "y": 432,
+   "w": 32,
+   "h": 8,
+   "power": 1
+  }
+ ]
+}
