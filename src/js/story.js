@@ -24,8 +24,8 @@
 //    auto           (opcjonalnie) liczba sekund; po ostatniej wiadomości gra sama przechodzi dalej
 //                   po tylu sekundach. Bez tego pola pojawia się przycisk "Dalej".
 //    then           (opcjonalnie) sceny po czacie, po kolei:
-//                   { "scene": "police", "duration": 8, "caption": "podpis pod obrazem", "image": "assets/story/policja.png" }
-//                   ("image" jest opcjonalne: bez niego gra rysuje własną scenę z radiowozem, patrz policescene.js)
+//                   { "scene": "police", "caption": "podpis pod obrazem", "image": "assets/story/policja.png" }
+//                   scena policyjna czeka na Spację lub Enter; "image" jest opcjonalne (bez niego używa policescene.js)
 //                   { "scene": "end", "title": "Koniec", "text": "morał", "button": "Menu główne" }
 //
 //  WIADOMOŚĆ
@@ -35,7 +35,7 @@
 //             widać "X pisze..."; brak = defaultDelay
 //    typing   (opcjonalnie) ile sekund trwa "pisze..." (domyślnie zależy od długości tekstu, ale nie więcej niż delay)
 //    time     (opcjonalnie) godzina pod wiadomością, np. "21:40"
-//    banner   (opcjonalnie, tylko system) true = wielki napis na całym czacie (np. "Grupa usunięta"):
+//    banner   (opcjonalnie, tylko system) true = wielki komunikat na całym czacie:
 //             czat ciemnieje i nie da się już pisać
 //
 //  Kliknięcie lub Spacja przyspiesza (pokazuje następną wiadomość od razu), Esc / "Pomiń" przeskakuje dalej.
@@ -85,7 +85,6 @@ function cleanScene(raw, where) {
     if (raw.scene === "police") {
         return {
             scene: "police",
-            duration: num(raw.duration, 8, 1, 120),
             caption: isText(raw.caption) ? raw.caption : "",
             image: isText(raw.image) && raw.image ? raw.image : null,
         };

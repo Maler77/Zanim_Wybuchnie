@@ -493,9 +493,9 @@
    "direction": -1,
    "speed": 48,
    "area": {
-    "x1": 2120,
+    "x1": 2118,
     "y1": 460,
-    "x2": 2400,
+    "x2": 2310,
     "y2": 600
    }
   },
@@ -582,6 +582,13 @@
     "x2": 5200,
     "y2": 600
    }
+  }
+ ],
+ "hints": [
+  {
+   "x": 0,
+   "w": 780,
+   "text": "Nie daj się zauważyć strażnikom. Gdy cię zobaczą, włączą alarm i spadną spadochroniarze."
   }
  ],
  "checkpoints": [

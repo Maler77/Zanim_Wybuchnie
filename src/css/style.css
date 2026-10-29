@@ -612,6 +612,7 @@ body.cursor-hidden .game { cursor: none; }
 }
 .story-skip:hover { color: #fff; border-color: #fff; }
 .story-root[data-stage="reading"] .story-skip,
+.story-root[data-stage="police"] .story-skip,
 .story-root[data-stage="end"] .story-skip,
 .story-root[data-stage="idle"] .story-skip { display: none; }
 
@@ -723,7 +724,7 @@ body.cursor-hidden .game { cursor: none; }
 .chat__input { flex: 1; }
 .chat__send { color: #3e5166; }
 
-/* "Grupa usunięta": czat ciemnieje, na środku wielki napis. */
+/* Baner komunikatu systemowego przyciemnia czat. */
 .chat__banner { position: absolute; inset: 0; display: grid; place-items: center; background: rgb(5 7 11 / .78); color: #ff8a8a; font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; opacity: 0; pointer-events: none; transition: opacity .9s ease; }
 .chat.is-deleted .chat__banner { opacity: 1; }
 .chat.is-deleted .chat__status { color: #ff8a8a; }
@@ -739,6 +740,8 @@ body.cursor-hidden .game { cursor: none; }
 .story-police__image[hidden] { display: none; }
 .story-police__caption { min-height: 6.5rem; max-width: 46rem; margin: 0; padding: .8rem 1.2rem 0; color: #dbe4ee; font-size: clamp(.9rem, 1.5vw, 1.1rem); line-height: 1.5; text-align: center; opacity: 0; transition: opacity 1.2s ease; }
 .story-police__caption.is-in { opacity: 1; }
+.story-police__continue { margin: .1rem 0 1rem; color: #94a4b8; font-size: .8rem; opacity: 0; transition: opacity .6s ease; }
+.story-police__continue.is-in { opacity: 1; }
 
 /* Zakończenie: "Koniec" na górze, morał na środku, przycisk na dole. */
 .story-layer--end { justify-content: space-between; padding: clamp(1rem, 4vh, 2.5rem) 1.5rem; }

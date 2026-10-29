@@ -56,7 +56,8 @@ export function createStoryPlayer(root, story) {
     policeCanvas.height = SCENE_HEIGHT;
     const policeImage = el("div", "story-police__image");
     const policeCaption = el("p", "story-police__caption");
-    policeLayer.append(policeCanvas, policeImage, policeCaption);
+    const policeContinue = el("p", "story-police__continue", "Naciśnij Spację lub Enter, aby kontynuować");
+    policeLayer.append(policeCanvas, policeImage, policeCaption, policeContinue);
 
     // Zakończenie: tytuł u góry, tekst na środku, przycisk na dole
     const endLayer = addLayer("end");
@@ -264,11 +265,13 @@ export function createStoryPlayer(root, story) {
         fast = false;
         policeCaption.textContent = scene.caption;
         policeCaption.classList.remove("is-in");
+        policeContinue.classList.remove("is-in");
         const hasImage = Boolean(scene.image);
         policeCanvas.hidden = hasImage;
         policeImage.hidden = !hasImage;
         if (hasImage) policeImage.style.backgroundImage = `url("${new URL(scene.image, document.baseURI).href}")`;
         showLayer("police");
+        root.focus({ preventScroll: true });
 
         const startedAt = performance.now();
         const ctx = policeCanvas.getContext("2d");
@@ -278,9 +281,13 @@ export function createStoryPlayer(root, story) {
         };
         policeFrame = requestAnimationFrame(loop);
 
+        const continueScene = waitForButton();
         await wait(1.4);
-        if (run === runId) policeCaption.classList.add("is-in");
-        await wait(scene.duration - 1.4);
+        if (run === runId) {
+            policeCaption.classList.add("is-in");
+            policeContinue.classList.add("is-in");
+        }
+        await continueScene;
         cancelAnimationFrame(policeFrame);
     }
 
@@ -298,15 +305,16 @@ export function createStoryPlayer(root, story) {
     // ---------- Sterowanie ----------
     function proceed() {
         buttonResolve?.();
+        if (stage === "police") nudge();
     }
 
     function skip() {
         if (stage === "idle" || stage === "end") return;
-        if (stage === "reading") {
+        if (stage === "reading" || stage === "police") {
             proceed();
             return;
         }
-        fast = true; // title, chat, police: wszystkie czekania natychmiast się kończą
+        fast = true; // title i chat: wszystkie czekania natychmiast się kończą
         nudge();
     }
 
@@ -318,7 +326,7 @@ export function createStoryPlayer(root, story) {
     root.addEventListener("click", (event) => {
         if (event.target instanceof Element && event.target.closest("button")) return;
         if (stage === "chat") nudge();
-        else if (stage === "title" || stage === "police") skip();
+        else if (stage === "title") skip();
     });
 
     document.addEventListener("keydown", (event) => {
@@ -327,7 +335,8 @@ export function createStoryPlayer(root, story) {
         if (document.activeElement instanceof HTMLButtonElement) return; // przycisk obsłuży to sam
         event.preventDefault();
         if (stage === "chat") nudge();
-        else if (stage === "title" || stage === "police") skip();
+        else if (stage === "title") skip();
+        else if (stage === "police") proceed();
         else if (stage === "reading" && performance.now() - readingSince > READ_LOCK_MS) proceed();
     });
 

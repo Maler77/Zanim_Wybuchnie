@@ -142,11 +142,10 @@
                 {"author": "system", "text": "Dzień po", "delay": 1.0},
                 {"author": "Kamil", "text": "Rafał?", "delay": 2.6, "time": "13:41"},
                 {"author": "Kamil", "text": "Paweł? Dorota? Ktokolwiek?", "delay": 2.4, "time": "13:42"},
-                {"author": "Kamil", "text": "Miałeś być na zewnątrz. Miałeś koordynować. Odpisz.", "delay": 3.0, "time": "13:44"},
-                {"author": "system", "text": "Grupa usunięta", "delay": 2.8, "banner": true}
+                {"author": "Kamil", "text": "Miałeś być na zewnątrz. Miałeś koordynować. Odpisz.", "delay": 3.0, "time": "13:44"}
             ],
             "then": [
-                {"scene": "police", "duration": 9, "caption": "Kamil został zatrzymany przed budynkiem. Wszystkie ładunki rozbrojono, nikt nie zginął. Paweł, Dorota i Michał trafili do aresztu. Rafał zniknął z sieci razem z kontami, z których prowadził grupę. Policja ustaliła, że zwerbował w ten sam sposób inne osoby."},
+                {"scene": "police", "caption": "Kamil został zatrzymany przed budynkiem. Wszystkie ładunki rozbrojono, nikt nie zginął. Paweł, Dorota i Michał trafili do aresztu. Rafał zniknął z sieci razem z kontami, z których prowadził grupę. Policja ustaliła, że zwerbował w ten sam sposób inne osoby."},
                 {"scene": "end", "title": "Koniec", "text": "Nikt nie budzi się pewnego dnia z decyzją o ataku. Ta historia zaczęła się od utraty pracy, długów i samotności, czyli od prawdziwej krzywdy. Gniew nie czyni jeszcze nikogo radykałem. Niebezpieczne jest to, kto go przejmie i dokąd skieruje.\n\nRadykalizacja idzie krok po kroku: od grupy, która daje wsparcie, przez prostą opowieść o „nas” i „nich”, odcinanie się od bliskich i od każdego, kto myśli inaczej, aż po presję, z której nie ma wyjścia. Po drodze zawsze ktoś mówi, że wątpliwość to zdrada.\n\nKażdy z tych kroków da się zatrzymać. Gdy ktoś bliski się wycofuje, wszystko sprowadza do jednego winnego i powtarza cudze słowa, nie wycofuj się razem z nim. Rozmowa, pytania i zwykła obecność są silniejsze niż wiadomości od obcego z internetu. A ci, którzy każą innym ryzykować, sami rzadko zostają na pierwszej linii.", "button": "Menu główne"}
             ]
         }

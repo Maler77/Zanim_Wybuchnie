@@ -280,7 +280,14 @@
    "x": 2550,
    "w": 96,
    "y": 150,
-   "text": "Odbijaj się naprzemiennie od lewej i prawej ściany\nOd tej samej ściany odbijesz się dopiero po chwili"
+   "text": "Odbijaj się naprzemiennie od lewej i prawej ściany zmieniając kierunki"
+  },
+  {
+   "x": 2646,
+   "w": 220,
+   "y": 150,
+   "h": 200,
+   "text": "Możesz zejść z platformy: [S] lub [↓]"
   },
   {
    "x": 2960,

@@ -7,6 +7,7 @@ const JUMP = ["Space", "ArrowUp", "KeyW"];
 const GRAPPLE_RELEASE = ["Space"];
 const GRAPPLE_SHORTEN = ["ArrowUp", "KeyW"];
 const GRAPPLE_EXTEND = ["ArrowDown", "KeyS"];
+const DROP = ["ArrowDown", "KeyS"];
 const DASH = ["ShiftLeft", "ShiftRight"];
 const DEBUG = ["Slash"];
 const PAUSE = ["Escape"];
@@ -60,7 +61,7 @@ export function createInput() {
         jumpHeld: () => any(JUMP, down),
         // Czy klawisz skoku został dopiero co wciśnięty (jeden skok na naciśnięcie).
         jumpPressed: () => any(JUMP, pressed),
-        dropPressed: () => pressed.has("KeyS"),
+        dropPressed: () => any(DROP, pressed),
         grappleReleasePressed: () => any(GRAPPLE_RELEASE, pressed),
         grappleLengthChange: () => Number(any(GRAPPLE_EXTEND, down)) - Number(any(GRAPPLE_SHORTEN, down)),
         // Czy Shift został dopiero co wciśnięty (dash).

@@ -1051,8 +1051,11 @@ export function createGame(initialLevel) {
         const distanceTo = (point) => Math.hypot(point.x - px, point.y - py);
         // side: "left" = punkt musi leżeć na lewo od gracza, "right" = na prawo (boss ma się pojawiać ZA graczem).
         const sideOk = (point) => point.side === undefined || (point.side === "left" ? point.x < px : point.x > px);
-        const far = points.filter((point) => sideOk(point) && distanceTo(point) >= minDistance)
+        const farEnough = points.filter((point) => distanceTo(point) >= minDistance);
+        const behind = farEnough.filter(sideOk)
             .sort((a, b) => distanceTo(a) - distanceTo(b));
+        // Zwykle pojaw się za graczem; jeśli nie ma tam dość odległego punktu, użyj punktu po drugiej stronie.
+        const far = behind.length ? behind : farEnough.sort((a, b) => distanceTo(a) - distanceTo(b));
         // Żaden punkt nie jest dość daleko od gracza: boss czeka (nie pojawia się mu pod nosem).
         if (far.length === 0) return;
         const point = far[0];
@@ -1066,6 +1069,8 @@ export function createGame(initialLevel) {
         boss.stuck = false;
         boss.stuckClock = 0;
         boss.lostClock = 0;
+        boss.lostGap = 0;
+        boss.lostDistance = 0;
         boss.slowTime = 0;
         boss.wait = BOSS_RESPAWN_WAIT;
         boss.ai = { mode: "chase", timer: 2, lastSeenX: px, sees: false };
@@ -1363,7 +1368,7 @@ export function createGame(initialLevel) {
         player.jumpBuffer = Math.max(0, player.jumpBuffer - dt);
         player.sinceWallJump += dt;
 
-        // S drops through the one-way platform currently supporting the player.
+        // S or Down drops through the one-way platform currently supporting the player.
         if (!grappleTarget && player.onGround && input.dropPressed()) {
             const feet = player.y + player.h;
             const oneWayFloor = platforms.some((platform) => platform.solid !== false && platform.oneWay

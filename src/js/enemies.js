@@ -74,11 +74,11 @@ const BOSS_KICK_TIME = 0.3;         // tyle czasu leci w bok po odbiciu (s)
 const BOSS_WALL_COOLDOWN = 1.0;     // odbicie od ściany z tej samej strony dopiero po tylu s (jak u gracza)
 const BOSS_WALL_REACH = 30 * SCALE; // ściana bliżej niż tyle px zachęca do wspinania się
 const BOSS_AIR_SPEED = 135 * SCALE; // pozioma prędkość bossa w powietrzu (px/s)
-const BOSS_STUCK_TIME = 3;          // tyle sekund prawie bez ruchu = utknął
-const BOSS_STUCK_DISTANCE = 40 * SCALE; // "prawie bez ruchu" = mniej niż tyle px w BOSS_STUCK_TIME s
+const BOSS_STUCK_TIME = 4.5;        // daj mu czas na próbę wspinania się po przeszkodzie
+const BOSS_STUCK_DISTANCE = 20 * SCALE; // za utknięcie uznaj dopiero niemal całkowity brak postępu
 const BOSS_LOST_HEIGHT = 125 * SCALE;   // różnica wysokości, od której boss uważa, że jest na innym piętrze niż gracz
-const BOSS_LOST_TIME = 6;               // co tyle s sprawdza, czy zbliżył się do piętra gracza ...
-const BOSS_LOST_PROGRESS = 40 * SCALE;  // ... o co najmniej tyle px; jeśli nie, zgubił trop (jak utknięcie)
+const BOSS_LOST_TIME = 10;              // daj mu więcej czasu na dotarcie na piętro gracza ...
+const BOSS_LOST_PROGRESS = 30 * SCALE;  // ... i wymagaj mniejszego postępu, by uznać, że się zgubił
 
 // Stare nazwy typów, które nadal działają w plikach poziomów (po wczytaniu zamieniane na nową).
 export const ENEMY_TYPE_ALIASES = Object.freeze({ kamikaze: "boss" });
@@ -170,6 +170,7 @@ export function createEnemy(data, index = 0) {
         stuckClock: 0,               // boss: wykrywanie utknięcia
         lostClock: 0,                // boss: jak długo jest na innym piętrze niż gracz
         lostGap: 0,
+        lostDistance: 0,
         stuckX: 0,
         stuckY: 0,
         stuck: false,                // boss: utknął (zeruje to game.js po przeniesieniu)
@@ -278,6 +279,8 @@ export function resetEnemy(enemy) {
     enemy.sinceKick = 99;
     enemy.stuckClock = 0;
     enemy.lostClock = 0;
+    enemy.lostGap = 0;
+    enemy.lostDistance = 0;
     enemy.stuck = false;
     enemy.direction = enemy.homeDirection;
     enemy.facing = enemy.homeDirection;
@@ -691,6 +694,7 @@ function updateBoss(enemy, world, dt) {
     const runSpeed = enemy.chaseSpeed * slow;
     enemy.sinceKick += dt;
     enemy.kickTime = Math.max(0, enemy.kickTime - dt);
+    const canKick = (side) => side !== enemy.lastKickSide || enemy.sinceKick >= BOSS_WALL_COOLDOWN;
 
     // Wykrywanie utknięcia: prawie bez ruchu przez BOSS_STUCK_TIME s.
     if (enemy.stuckClock === 0) { enemy.stuckX = ex; enemy.stuckY = ey; }
@@ -700,16 +704,22 @@ function updateBoss(enemy, world, dt) {
         enemy.stuckClock = 0;
     }
 
-    // Zgubiony trop: długo na innym piętrze niż gracz (np. biega pod mostem, na którym stoi gracz).
-    // Liczy się tylko brak postępu: jeśli różnica wysokości nie maleje (np. biega pod mostem), a nie np. wspina się.
+    // Zgubiony trop: długo na innym piętrze niż gracz. Postęp liczy się także w poziomie,
+    // żeby Kamil nie był przenoszony, gdy biegnie do przejścia albo wspina się po ścianie.
     const heightGap = Math.abs(py - ey);
+    const playerDistance = Math.hypot(dx, py - ey);
     if (heightGap <= BOSS_LOST_HEIGHT) {
         enemy.lostClock = 0;
     } else {
-        if (enemy.lostClock === 0) enemy.lostGap = heightGap;
+        if (enemy.lostClock === 0) {
+            enemy.lostGap = heightGap;
+            enemy.lostDistance = playerDistance;
+        }
         enemy.lostClock += dt;
         if (enemy.lostClock >= BOSS_LOST_TIME) {
-            if (heightGap > enemy.lostGap - BOSS_LOST_PROGRESS) enemy.stuck = true;
+            const heightProgress = heightGap <= enemy.lostGap - BOSS_LOST_PROGRESS;
+            const distanceProgress = playerDistance <= enemy.lostDistance - BOSS_LOST_PROGRESS;
+            if (!heightProgress && !distanceProgress) enemy.stuck = true;
             enemy.lostClock = 0;
         }
     }
@@ -725,25 +735,37 @@ function updateBoss(enemy, world, dt) {
             enemy.onGround = false;
             enemy.jumpCooldown = 0.6;
             enemy.obstacleJumping = true;
+        } else if (enemy.jumpCooldown <= 0 && enemy.hitWall && enemy.blockingObstacle
+            && wantDir === enemy.blockingDirection && canKick(enemy.blockingDirection)
+            && bossWall(enemy, platforms, enemy.blockingDirection, 2)) {
+            // Jeśli przeszkoda jest za wysoka na zwykły skok, odbij się od niej nawet wtedy,
+            // gdy gracz jest na tym samym piętrze. Po wyjściu nad przeszkodę wróć do pościgu.
+            enemy.vy = -BOSS_WALL_JUMP_SPEED;
+            enemy.onGround = false;
+            enemy.obstacleJumping = true;
+            enemy.kickDir = -enemy.blockingDirection;
+            enemy.kickTime = BOSS_KICK_TIME;
+            enemy.lastKickSide = enemy.blockingDirection;
+            enemy.sinceKick = 0;
         }
     }
 
     if (!enemy.onGround) command.speed = Math.max(command.speed, BOSS_AIR_SPEED * slow); // w powietrzu sunie szybciej
     if (!enemy.onGround) {
-        // W powietrzu: odbicie od ściany, gdy gracz jest wyżej (jak wall-jump gracza).
+        // W powietrzu wspina się, gdy gracz jest wyżej albo gdy właśnie próbuje obejść wysoką ścianę.
+        const shouldClimb = needUp || enemy.obstacleJumping;
         const sides = [-1, 1];
         const touching = sides.find((side) => bossWall(enemy, platforms, side, 2));
-        const canKick = (side) => side !== enemy.lastKickSide || enemy.sinceKick >= BOSS_WALL_COOLDOWN;
         if (enemy.kickTime > 0) {
             command = { move: enemy.kickDir, speed: BOSS_WALL_KICK_SPEED * slow, allowDrop: true };
-        } else if (needUp && touching !== undefined && canKick(touching) && enemy.vy > -120 * SCALE) {
+        } else if (shouldClimb && touching !== undefined && canKick(touching) && enemy.vy > -120 * SCALE) {
             enemy.vy = -BOSS_WALL_JUMP_SPEED;
             enemy.kickDir = -touching;
             enemy.kickTime = BOSS_KICK_TIME;
             enemy.lastKickSide = touching;
             enemy.sinceKick = 0;
             command = { move: enemy.kickDir, speed: BOSS_WALL_KICK_SPEED * slow, allowDrop: true };
-        } else if (needUp) {
+        } else if (shouldClimb) {
             // Szuka ściany do odbicia: najpierw tej bliżej gracza, potem drugiej (jeśli wolno się od niej odbić).
             const order = wantDir >= 0 ? [1, -1] : [-1, 1];
             const side = order.find((s) => canKick(s) && bossWall(enemy, platforms, s, BOSS_WALL_REACH));
