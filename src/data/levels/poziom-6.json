@@ -676,6 +676,14 @@
   },
   {
    "x": 6812,
+   "y": 908,
+   "w": 96,
+   "h": 132,
+   "texture": "assets/l7_hatch_glow.png",
+   "solid": false
+  },
+  {
+   "x": 6812,
    "y": 900,
    "w": 96,
    "h": 8,
@@ -691,6 +699,14 @@
    "texture": "assets/l7_grate.png",
    "textureMode": "tile",
    "oneWay": true
+  },
+  {
+   "x": 6804,
+   "y": 816,
+   "w": 112,
+   "h": 84,
+   "texture": "assets/l7_hatch_gate.png",
+   "solid": false
   },
   {
    "x": 7490,
@@ -979,6 +995,13 @@
    "x": 0,
    "w": 820,
    "text": "Uciekaj przed Kamilem i rozbrój wszystkie panele. Podejdź do panelu i naciśnij [E]."
+  },
+  {
+   "x": 6592,
+   "w": 316,
+   "y": 760,
+   "h": 150,
+   "text": "Panel 2 jest pod kratką: stań na niej i wciśnij [S], żeby zejść do kanału"
   }
  ],
  "checkpoints": [
